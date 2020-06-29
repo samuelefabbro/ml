@@ -1,0 +1,46 @@
+{
+    "Main": {
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "slug"
+            }
+        },
+        "contact": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1",
+                "label": "Contact"
+            }
+        },
+        "logo_white": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Logo white"
+            }
+        },
+        "paragraph": {
+            "type": "StructuredText",
+            "config": {
+                "single": "paragraph, strong, em",
+                "label": "Paragraph"
+            }
+        },
+        "email": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "heading3, hyperlink",
+                "label": "email"
+            }
+        },
+        "phone": {
+            "type": "StructuredText",
+            "config": {
+                "multi": "heading3, hyperlink",
+                "label": "phone"
+            }
+        }
+    }
+}

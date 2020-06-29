@@ -1,0 +1,34 @@
+{
+    "Main": {
+        "logo_home": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Logo home"
+            }
+        },
+        "name": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1",
+                "label": "Name"
+            }
+        },
+        "tagline": {
+            "type": "StructuredText",
+            "config": {
+                "single": "paragraph",
+                "label": "tagline"
+            }
+        },
+        "video": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading6",
+                "label": "video",
+                "placeholder": "Inserisci solo il numero del video Vimeo"
+            }
+        }
+    }
+}
