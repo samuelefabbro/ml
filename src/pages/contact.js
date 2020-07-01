@@ -1,8 +1,9 @@
+import { Parser } from 'html-to-react'
 import React from "react"
-import { RichText } from "prismic-reactjs"
 import { graphql } from 'gatsby'
 import styled from "styled-components"
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 const Wrapper = styled.div`
   background: #262626;
@@ -39,24 +40,24 @@ const Wrapper = styled.div`
 `;
 
 
+
 const Contact = ({ data }) => {
   const document = data.prismicContact.data
   if (!document) return null
 
-  const phone = data.prismicContact.data.phone.html
-  return (
+  const htmlToReactParser = new Parser()
 
+  return (
+    <Layout>
     <Wrapper>
     <SEO title="Monica Loddo | Architect and Interior Designer | Contact page" />
     <img src={document.logo_white.url} alt="" />
     <h1>{document.contact.text}</h1>
-    <p>{document.paragraph.text}</p>
-      <RichText render={document.paragraph} />
-
-      <RichText render={phone} />
-
-        <h3><a href="tel:+855081642389">+855 (0) 81 642389</a></h3>
+      {htmlToReactParser.parse(document.paragraph.html)}
+      {htmlToReactParser.parse(document.email.html)}
+      {htmlToReactParser.parse(document.phone.html)}
     </Wrapper>
+    </Layout>
   )
 }
 
@@ -75,7 +76,7 @@ query {
         url
       }
       paragraph {
-        text
+        html
       }
       phone {
         html
