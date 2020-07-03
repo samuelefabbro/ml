@@ -17,7 +17,7 @@ module.exports = {
           project: require('./src/schemas/project.json'),
         }
       }
-      
+
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -42,6 +42,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
