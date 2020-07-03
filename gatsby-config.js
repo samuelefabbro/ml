@@ -14,6 +14,7 @@ module.exports = {
           about: require('./src/schemas/about.json'),
           contact: require('./src/schemas/contact.json'),
           projects: require('./src/schemas/projects.json'),
+          project: require('./src/schemas/project.json'),
         }
       }
       
