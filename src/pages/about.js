@@ -1,8 +1,15 @@
 import { Parser } from 'html-to-react'
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
+import styled from "styled-components"
 import Layout from "../components/Layout"
+import MaxWidth from "../components/MaxWidth"
 const htmlToReactParser = new Parser()
+
+const AboutImg = styled.img`
+    width: 100%;
+    max-width: 500px;
+`
 
 const About = ({ data }) => {
     const prismicContent = data.allPrismicAbout.edges[0]
@@ -18,8 +25,6 @@ const About = ({ data }) => {
         if (slice_type === 'paragraph') {
             let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
-            console.log(slice)
-
             return (
                 <Fragment key={`slice-${index}`}>
                     {items}
@@ -29,13 +34,12 @@ const About = ({ data }) => {
 
         // Image Gallery Slice
         if (slice_type === 'gallery') {
-            console.log(slice)
 
             return (
-                <div>
-                    {slice.items.map((item, index) => (
-                        <img
-                            key={index}
+                <div key={index}>
+                    {slice.items.map((item, i) => (
+                        <AboutImg
+                            key={i}
                             src={item.image.url}
                             alt={item.image.alt}
                         />
@@ -49,7 +53,9 @@ const About = ({ data }) => {
 
     return (
         <Layout>
-            {content}
+            <MaxWidth>
+                {content}
+            </MaxWidth>
         </Layout>
     )
 }
