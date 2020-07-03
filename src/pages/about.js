@@ -1,70 +1,101 @@
 import { Parser } from 'html-to-react'
-import React from "react"
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-
-import SEO from "../components/seo"
 import Layout from "../components/layout"
-
 const htmlToReactParser = new Parser()
 
 const About = ({ data }) => {
-  const document = data.prismicAbout.data
-  if (!document) return null
+    const prismicContent = data.allPrismicAbout.edges[0]
+    if (!prismicContent) return null
 
-  const image = document.body[0].items[0].image.url
+    console.log(prismicContent)
 
+    const content = prismicContent.node.data.body.map((slice, index) => {
+      // Render the right markup for the given slice type
+      let slice_type = slice.slice_type
 
+      // Text Slice
+      if (slice_type === 'paragraph') {
+        let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
+        console.log(slice)
 
+        return (
+          <Fragment key={`slice-${index}`}>
+            {items}
+          </Fragment>
+        )
+      }
 
-  return (
-    <Layout>
+      // Image Gallery Slice
+      if (slice_type === 'gallery') {
+        console.log(slice)
 
-    <SEO title="Monica Loddo | Architect and Interior Designer | Contact page" />
-    <img src={document.logo.url} alt={document.logo.alt} />
-    <h4>{document.description.text}</h4>
-      <img src={image} alt=""/>
-    {htmlToReactParser.parse(document.body[1].items[0].text.html)}
+        return (
+          <div>
+            {slice.items.map((item, index) => (
+              <img
+                key={item.index}
+                src={item.image.url}
+                alt={item.image.alt}
+              />
+            ))}
+          </div>
+        )
+      }
 
-    </Layout>
-  )
-}
+      return null
+    })
 
+    return (
+      <Layout>
+        {content}
+      </Layout>
+    )
+  }
 
-
-export const query = graphql`
-query {
-  prismicAbout {
-    data {
-      body {
-        ... on PrismicAboutBodyGallery {
-          items {
-            image {
+  export const query = graphql`
+  query {
+    allPrismicAbout {
+      edges {
+        node {
+          data {
+            body {
+              ... on PrismicAboutBodyParagraph {
+                id
+                items {
+                  text {
+                    html
+                  }
+                }
+                slice_type
+              }
+              ... on PrismicAboutBodyGallery {
+                id
+                slice_type
+                items {
+                  image {
+                    alt
+                    url
+                  }
+                }
+              }
+            }
+            description {
+              text
+            }
+            logo {
+              alt
               url
             }
-          }
-        }
-        ... on PrismicAboutBodyParagraph {
-          items {
-            text {
-              html
+            page_title {
+              text
             }
           }
         }
-      }
-      description {
-        text
-      }
-      logo {
-        url
-        alt
-      }
-      page_title {
-        text
       }
     }
   }
-}
 `
 
 

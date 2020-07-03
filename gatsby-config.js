@@ -13,6 +13,7 @@ module.exports = {
           homepage: require('./src/schemas/homepage.json'),
           about: require('./src/schemas/about.json'),
           contact: require('./src/schemas/contact.json'),
+          projects: require('./src/schemas/projects.json'),
         }
       }
       

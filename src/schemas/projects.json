@@ -1,0 +1,62 @@
+{
+    "Main": {
+        "logo": {
+            "type": "Image",
+            "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Logo"
+            }
+        },
+        "projects1": {
+            "type": "StructuredText",
+            "config": {
+                "single": "heading1",
+                "label": "Projects"
+            }
+        },
+        "projects": {
+            "type": "Group",
+            "config": {
+                "fields": {
+                    "project_image": {
+                        "type": "Image",
+                        "config": {
+                            "constraint": {},
+                            "thumbnails": [],
+                            "label": "project image"
+                        }
+                    },
+                    "project_year": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading3",
+                            "label": "project year"
+                        }
+                    },
+                    "project_title": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading2",
+                            "label": "project title"
+                        }
+                    },
+                    "project_location": {
+                        "type": "StructuredText",
+                        "config": {
+                            "single": "heading3",
+                            "label": "project location"
+                        }
+                    },
+                    "project": {
+                        "type": "Link",
+                        "config": {
+                            "label": "project"
+                        }
+                    }
+                },
+                "label": "projects"
+            }
+        }
+    }
+}

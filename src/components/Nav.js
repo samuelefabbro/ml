@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled,{ createGlobalStyle } from "styled-components"
-
+import { Link } from 'gatsby'
 const GlobalStyle = createGlobalStyle`
     body{
         background-color: #FFF;
@@ -20,6 +20,22 @@ const StyledNav = styled.nav`
     opacity: 0.9;
     transform: ${({showNav})=> showNav ? 'translateX(50vw)' : 'translateX(100vw)'};
     transition: transform 250ms ease-in-out;
+`;
+
+const StyledDiv = styled.div`
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    a { 
+        font-family: "Work Sans";
+        font-size: 24px;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+     }
 `;
 
 const StyledHamburger = styled.button`
@@ -87,10 +103,19 @@ const Nav = () => {
     return(
         <>
             <GlobalStyle />
-            <StyledNav showNav={menu}/>
+            <StyledNav showNav={menu}>
+                <StyledDiv>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/projects">Projects</Link>
+                    <Link to="/contact">Contact</Link>
+                </StyledDiv>
+
+            </StyledNav>
+            
             <StyledHamburger hamburger={menu} onClick={()=>showMenu(!menu)}>
                 <HamburgerBox>
-                    <HamburgerInner hamburger={menu}/>
+                    <HamburgerInner hamburger={menu} />
                 </HamburgerBox>
             </StyledHamburger>
         </>
