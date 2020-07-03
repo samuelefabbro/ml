@@ -1,0 +1,21 @@
+
+$padding-horizontal: 60px;
+$padding-horizontal--mobile: 16px;
+
+
+$max-width__content: 1500px;
+$max-width__content--l: 1500px;
+$max-width__footer: 1180px; //max-width content minus both content's padding
+$max-width__navigation: 910px;
+$max-width__navigation: $max-width__content;
+$max-width__navigation--l: $max-width__content--l;
+
+$post-max-width: 800px;
+
+
+// Media query widths
+$media-mobile: 520px;
+$media-tablet: 767px;
+$media-desktop: 1100px;
+$media-tablet--include: 768px;
+
