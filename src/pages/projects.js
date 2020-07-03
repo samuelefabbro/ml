@@ -2,21 +2,32 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from "../components/layout"
+import ProjectCard from "../components/ProjectCard"
 
 const Projects = ({ data }) => {
     const document = data.prismicProjects.data
     if (!document) return null
-  
+
+    let projects = data.prismicProjects.data.projects || null
+
+    //console.log(projects)
+
     return (
       <Layout>
-        <img src={document.logo.url} alt="" />   
-      <h1>{document.projects1.text}</h1>
-      <Link to={document.projects[0].project.uid}>Project 1</Link>
-      <Link to={document.projects[1].project.uid}>Project 2</Link>
+        <img src={document.logo.url} alt="" />
+        <h1>{document.projects1.text}</h1>
+        <div>
+            {projects.map((project, i) => (
+              <ProjectCard
+                data={project}
+                key={i}
+              />
+            ))}
+        </div>
       </Layout>
     )
   }
-  
+
 
 
 

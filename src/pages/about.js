@@ -35,7 +35,7 @@ const About = ({ data }) => {
           <div>
             {slice.items.map((item, index) => (
               <img
-                key={item.index}
+                key={index}
                 src={item.image.url}
                 alt={item.image.alt}
               />
