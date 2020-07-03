@@ -2,8 +2,8 @@ import { Parser } from 'html-to-react'
 import React from "react"
 import { graphql } from 'gatsby'
 import styled from "styled-components"
-import SEO from "../components/seo"
-import Layout from "../components/layout"
+import SEO from "../components/SEO"
+import Layout from "../components/Layout"
 
 const Wrapper = styled.div`
   background: #262626;
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     line-height: 150%;
     margin: 0 auto 50px auto;
     color: white;
-    
+
   }
   h3 {
     font-size: 32px;

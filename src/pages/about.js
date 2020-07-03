@@ -11,50 +11,50 @@ const About = ({ data }) => {
     console.log(prismicContent)
 
     const content = prismicContent.node.data.body.map((slice, index) => {
-      // Render the right markup for the given slice type
-      let slice_type = slice.slice_type
+        // Render the right markup for the given slice type
+        let slice_type = slice.slice_type
 
-      // Text Slice
-      if (slice_type === 'paragraph') {
-        let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
+        // Text Slice
+        if (slice_type === 'paragraph') {
+            let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
-        console.log(slice)
+            console.log(slice)
 
-        return (
-          <Fragment key={`slice-${index}`}>
-            {items}
-          </Fragment>
-        )
-      }
+            return (
+                <Fragment key={`slice-${index}`}>
+                    {items}
+                </Fragment>
+            )
+        }
 
-      // Image Gallery Slice
-      if (slice_type === 'gallery') {
-        console.log(slice)
+        // Image Gallery Slice
+        if (slice_type === 'gallery') {
+            console.log(slice)
 
-        return (
-          <div>
-            {slice.items.map((item, index) => (
-              <img
-                key={index}
-                src={item.image.url}
-                alt={item.image.alt}
-              />
-            ))}
-          </div>
-        )
-      }
+            return (
+                <div>
+                    {slice.items.map((item, index) => (
+                        <img
+                            key={index}
+                            src={item.image.url}
+                            alt={item.image.alt}
+                        />
+                    ))}
+                </div>
+            )
+        }
 
-      return null
+        return null
     })
 
     return (
-      <Layout>
-        {content}
-      </Layout>
+        <Layout>
+            {content}
+        </Layout>
     )
-  }
+}
 
-  export const query = graphql`
+export const query = graphql`
   query {
     allPrismicAbout {
       edges {

@@ -1,15 +1,15 @@
-	
+
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import styled from "styled-components"
 import logo from "../images/logo-overlay.svg"
 import logocircle from "../images/MonicaLoddo-logo-circle.svg"
- 
+
 const LogoHome = styled.div`
 font-family: "Work Sans", sans-serif;
 -webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale; 
+-moz-osx-font-smoothing: grayscale;
   width: 100%;
   background: #ffffff;
   height: 250px;
@@ -24,7 +24,7 @@ font-family: "Work Sans", sans-serif;
   h1 {
     font-weight: 700;
     font-size: 36px;
-    margin:0; 
+    margin:0;
     letter-spacing: 0.3px;
     @media (max-width: 768px) {
       font-size: 28px;
@@ -101,7 +101,7 @@ const IndexPage = ({ data }) => {
     if (!document) return null
 
     const vimeo = document.video.text
-	
+
   return (
     <Layout>
         <LogoHome>
@@ -118,12 +118,12 @@ const IndexPage = ({ data }) => {
                 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </VimeoWrapper>
 
-            
+
 
     </Layout>
   )
 }
- 
+
 export const query = graphql`
 query {
   prismicHomepage {
