@@ -2,7 +2,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from "../components/Layout"
-import ProjectCard from '../components/ProjectCard'
+import MaxWidth from "../components/MaxWidth"
+import ProjectCard from "../components/ProjectCard"
 
 const Projects = ({ data }) => {
     const document = data.prismicProjects.data
@@ -13,24 +14,24 @@ const Projects = ({ data }) => {
     //console.log(projects)
 
     return (
-      <Layout>
-        <img src={document.logo.url} alt="" />
-        <h1>
-          {document.projects1.text}
-        </h1>
-        <div>
-            {projects.map((project, i) => (
-              <ProjectCard
-                data={project}
-                key={i}
-              />
-            ))}
-        </div>
-      </Layout>
+        <Layout>
+            <MaxWidth>
+                <img src={document.logo.url} alt="" />
+                <h1>
+                    {document.projects1.text}
+                </h1>
+                <div>
+                    {projects.map((project, i) => (
+                        <ProjectCard
+                            data={project}
+                            key={i}
+                        />
+                    ))}
+                </div>
+            </MaxWidth>
+        </Layout>
     )
-  }
-
-
+}
 
 
 export const query = graphql`
@@ -66,4 +67,4 @@ query {
     }
   }`
 
-  export default Projects
+export default Projects
