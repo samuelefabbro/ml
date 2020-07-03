@@ -1,11 +1,10 @@
 import React from "react"
 import { RichText } from "prismic-reactjs";
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Parser } from 'html-to-react'
 import "normalize.css"
-
 
 const htmlToReactParser = new Parser()
 

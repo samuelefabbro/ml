@@ -1,6 +1,6 @@
 import React from "react"
 import "normalize.css"
-import Nav from "../components/Nav"
+import Nav from "./Nav"
 
 const Layout = ({ children }) => {
 

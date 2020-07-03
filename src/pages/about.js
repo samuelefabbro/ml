@@ -1,7 +1,7 @@
 import { Parser } from 'html-to-react'
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 const htmlToReactParser = new Parser()
 
 const About = ({ data }) => {

@@ -4,7 +4,6 @@ import styled from "styled-components"
 import logo from "../images/logo-overlay.svg"
 import logocircle from "../images/MonicaLoddo-logo-circle.svg"
 
-
 const VimeoWrapper = styled.div`
  {
     position: fixed;
@@ -48,8 +47,6 @@ const Overlay = styled.div`
 
 
 const Video = () => (
-
-
     <VimeoWrapper>
             <Overlay>
                 <img src={logo} alt="Monica Loddo Logo" />
@@ -58,16 +55,7 @@ const Video = () => (
                 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </VimeoWrapper>
 
-    
+
 
     )
-
-
 export default Video
-
-
-
-
-
- 
-

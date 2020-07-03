@@ -2,14 +2,12 @@ import React from "react"
 import "normalize.css"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import logo from "../images/MonicaLoddo-logo-circle.svg" 
-
-
+import logo from "../images/MonicaLoddo-logo-circle.svg"
 
 const LogoHome = styled.div`
 font-family: "Work Sans", sans-serif;
 -webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale; 
+-moz-osx-font-smoothing: grayscale;
   width: 100%;
   background: #ffffff;
   height: 216px;
@@ -24,7 +22,7 @@ font-family: "Work Sans", sans-serif;
   h1 {
     font-weight: 700;
     font-size: 36px;
-    margin:0; 
+    margin:0;
     letter-spacing: 0.3px;
     @media (max-width: 768px) {
       font-size: 28px;
@@ -51,7 +49,6 @@ font-family: "Work Sans", sans-serif;
     text-decoration: none;
   }
 `;
-
 
 const Header = () => (
     <LogoHome>
