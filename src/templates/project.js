@@ -88,6 +88,8 @@ const projectTemplate = ({ data }) => {
         )
     }
 
+
+
         return null
     })
 
@@ -140,6 +142,9 @@ query PageQuery($uid: String) {
               slice_type
               items {
                 text_link
+                all_projects_prev_next {
+                  uid
+            }
               }
             }
             ... on PrismicProjectBodyParagraph {
