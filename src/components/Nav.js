@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 const GlobalStyle = createGlobalStyle`
     body{
-        background-color: #FFF;
+        background-color: #FFFFFF;
     }
     *{
         margin: 0;
