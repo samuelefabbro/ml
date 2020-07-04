@@ -1,6 +1,7 @@
 import React, { Fragment } from "react"
 import Layout from "../components/Layout"
 import MaxWidth from "../components/MaxWidth"
+import ProjectFooterNav from "../components/ProjectFooterNav"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
 import Img from "gatsby-image"
@@ -44,7 +45,7 @@ const projectTemplate = ({ data }) => {
 
             return (
                 <MaxWidth size="xl" key={index}>
-                    <HeroImg src={img_src}/>
+                    <HeroImg src={img_src} />
                 </MaxWidth>
             )
         }
@@ -60,33 +61,39 @@ const projectTemplate = ({ data }) => {
         }
 
         if (slice_type === "PrismicProjectBody2Images") {
-          let img_1 = slice.primary.img_left.url
-          let alt_1 = slice.primary.img_left.alt
-          let img_2 = slice.primary.img_right.url
-          let alt_2 = slice.primary.img_right.alt
-          return (
-              <TwoImages key={index}>
-                  <img src={img_1} alt={alt_1} />
-                  <img src={img_2} alt= {alt_2} />
-              </TwoImages>
-          )
-      }
+            let img_1 = slice.primary.img_left.url
+            let alt_1 = slice.primary.img_left.alt
+            let img_2 = slice.primary.img_right.url
+            let alt_2 = slice.primary.img_right.alt
+            return (
+                <TwoImages key={index}>
+                    <img src={img_1} alt={alt_1} />
+                    <img src={img_2} alt={alt_2} />
+                </TwoImages>
+            )
+        }
 
+        if (slice_type === 'PrismicProjectBodyImageGallery') {
+            return (
+                <div key={index}>
+                    {slice.items.map((item, i) => (
+                        <GalleryImg
+                            key={i}
+                            src={item.gallery_image.url}
+                            alt={item.gallery_image.alt}
+                        />
+                    ))}
+                </div>
+            )
+        }
 
-      if (slice_type === 'PrismicProjectBodyImageGallery') {
-
-        return (
-            <div key={index}>
-                {slice.items.map((item, i) => (
-                    <GalleryImg
-                        key={i}
-                        src={item.gallery_image.url}
-                        alt={item.gallery_image.alt}
-                    />
-                ))}
-            </div>
-        )
-    }
+        if (slice_type === 'PrismicProjectBodyLinks') {
+            return (
+                <MaxWidth key={index}>
+                    <ProjectFooterNav data={slice.items}/>
+                </MaxWidth>
+            )
+        }
 
 
 
@@ -111,6 +118,39 @@ export default projectTemplate
 //     data: PropTypes.object,
 //     link: PropTypes.string,
 // };
+
+
+
+// @Sam Similar to the ProjectCard component, ProjectFooterNav can and should be pulled out into its own file!
+// Below is an example of how to keep this component inside another file. See ProjectFooterNav.js to see
+// the same snipped pulled out into its own file with its own scss stylesheet.
+// Including a component within another file, like below, should be
+// only used if the component is _really_ small and uncomplicated.
+// const ProjectFooterNav = ({ data }) => {
+//     console.log(data)
+//     return (
+//         <div>
+//             <div>
+//                 <Link to="/projects">
+//                     All Projects
+//                 </Link>
+//             </div>
+//             <div>
+//                 <div>
+//                     <Link to={`/projects/museum`}>
+//                         Previous Project / Museum
+//                     </Link>
+//                 </div>
+//                 <div>
+//                     <Link to={`/projects/museum`}>
+//                         Next Project / Museum
+//                     </Link>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+
 
 export const query = graphql`
 query PageQuery($uid: String) {
@@ -144,7 +184,7 @@ query PageQuery($uid: String) {
                 text_link
                 all_projects_prev_next {
                   uid
-            }
+                }
               }
             }
             ... on PrismicProjectBodyParagraph {
