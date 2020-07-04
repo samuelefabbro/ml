@@ -9,18 +9,32 @@ const htmlToReactParser = new Parser()
 
 const ProjectCard = ({ data }) => {
     let title = data.project_title.html
-    let description = "banananas"
+    let year = data.project_year.html
+    let image = data.project_image.url
+    let alt = data.project_image.alt
+    let location = data.project_location.html
+
     let link = data.project.uid
+
+    console.log(alt)
 
     return (
         <Link
             to={`/projects/${link}`}
             className="Project"
         >
-            <img />
+            <img src={image} alt={alt}/>
+            <div className="year">
+                {htmlToReactParser.parse(year)}
+            </div>
             <div className="title">
                 {htmlToReactParser.parse(title)}
             </div>
+            <div className="location">
+                {htmlToReactParser.parse(location)}
+            </div>
+           
+
         </Link>
     )
 }

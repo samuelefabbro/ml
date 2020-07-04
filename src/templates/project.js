@@ -19,6 +19,17 @@ const PostContent = styled.div`
     margin-bottom: 5em;
 `
 
+const TwoImages = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+`
+
+const GalleryImg = styled.img`
+    width: 100%;
+    max-width: 500px;
+`
+
 const projectTemplate = ({ data }) => {
     //The data prop^ is injected by the graphQL query below
     if (!data) return null
@@ -48,13 +59,44 @@ const projectTemplate = ({ data }) => {
             )
         }
 
+        if (slice_type === "PrismicProjectBody2Images") {
+          let img_1 = slice.primary.img_left.url
+          let alt_1 = slice.primary.img_left.alt
+          let img_2 = slice.primary.img_right.url
+          let alt_2 = slice.primary.img_right.alt
+          return (
+              <TwoImages key={index}>
+                  <img src={img_1} alt={alt_1} />
+                  <img src={img_2} alt= {alt_2} />
+              </TwoImages>
+          )
+      }
+
+
+      if (slice_type === 'PrismicProjectBodyImageGallery') {
+
+        return (
+            <div key={index}>
+                {slice.items.map((item, i) => (
+                    <GalleryImg
+                        key={i}
+                        src={item.gallery_image.url}
+                        alt={item.gallery_image.alt}
+                    />
+                ))}
+            </div>
+        )
+    }
+
         return null
     })
 
 
     return (
         <Layout className="Project">
-            {htmlToReactParser.parse(project.title.html)}
+            {htmlToReactParser.parse(project.year.text)}
+            {htmlToReactParser.parse(project.title.text)}
+            {htmlToReactParser.parse(project.location.text)}
 
             {bodyContent}
         </Layout>
@@ -74,15 +116,24 @@ query PageQuery($uid: String) {
         uid
         data {
           title {
-            html
+            text
           }
           location {
-            html
+            text
+          }
+          year {
+            text
           }
           body {
             ... on PrismicProjectBodyImageGallery {
               id
               slice_type
+              items {
+                gallery_image {
+                  url
+                  alt
+                }
+              }
             }
             ... on PrismicProjectBodyLinks {
               id
@@ -104,14 +155,11 @@ query PageQuery($uid: String) {
               primary {
                 img_left {
                   alt
-                  fluid {
-                    src
-                  }
+                  url
                 }
                 img_right {
-                  fluid {
-                    src
-                  }
+                  alt
+                  url
                 }
               }
             }

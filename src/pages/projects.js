@@ -16,7 +16,7 @@ const Projects = ({ data }) => {
     return (
         <Layout>
             <MaxWidth>
-                <img src={document.logo.url} alt="" />
+                <Link to="/"><img src={document.logo.url} alt="" /></Link>
                 <h1>
                     {document.projects1.text}
                 </h1>

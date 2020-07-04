@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledNav = styled.nav`
-    position: absolute;
+    position: fixed;
     width: 50vw;
     height: 100vh;
     background: #262626;
@@ -39,7 +39,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledHamburger = styled.button`
-    position: absolute;
+    position: fixed;
     top: 22px;
     right: 22px;
     padding: 10px;
