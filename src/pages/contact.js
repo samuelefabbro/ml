@@ -42,23 +42,25 @@ const Wrapper = styled.div`
 
 
 const Contact = ({ data }) => {
-  const document = data.prismicContact.data
-  if (!document) return null
+    const document = data.prismicContact.data
+    if (!document) return null
 
-  const htmlToReactParser = new Parser()
+    const htmlToReactParser = new Parser()
 
-  return (
-    <Layout>
-    <Wrapper>
-    <SEO title="Monica Loddo | Architect and Interior Designer | Contact page" />
-    <img src={document.logo_white.url} alt="" />
-    <h1>{document.contact.text}</h1>
-      {htmlToReactParser.parse(document.paragraph.html)}
-      {htmlToReactParser.parse(document.email.html)}
-      {htmlToReactParser.parse(document.phone.html)}
-    </Wrapper>
-    </Layout>
-  )
+    return (
+        <Layout menuTheme="light">
+            <Wrapper>
+                <SEO title="Monica Loddo | Architect and Interior Designer | Contact page" />
+                <img src={document.logo_white.url} alt="" />
+                <h1>
+                    {document.contact.text}
+                </h1>
+                {htmlToReactParser.parse(document.paragraph.html)}
+                {htmlToReactParser.parse(document.email.html)}
+                {htmlToReactParser.parse(document.phone.html)}
+            </Wrapper>
+        </Layout>
+    )
 }
 
 

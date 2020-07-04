@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled,{ createGlobalStyle } from "styled-components"
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 const GlobalStyle = createGlobalStyle`
     body{
@@ -28,7 +29,7 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    a { 
+    a {
         font-family: "Work Sans";
         font-size: 24px;
         color: white;
@@ -70,15 +71,16 @@ const HamburgerInner = styled.span`
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    background-color: ${({hamburger})=>hamburger ? 'transparent' : 'transparent'};
+    background-color: transparent;
     transition: background-color 100ms ease-in-out;
+
     &::after{
         content: '';
         left: 0;
         width: 100%;
         height: 3px;
         position: absolute;
-        background-color: ${({hamburger})=>hamburger ? '#FFF' : '#262626'};
+        background-color: ${({menuTheme, hamburger})=> (menuTheme == "light" || hamburger) ? '#FFF' : '#262626'};
         top: 8px;
         transform: ${({hamburger}) => hamburger ? 'translateY(-8px) rotate(-135deg)':'translateY(0) rotate(0)'};
         transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
@@ -90,15 +92,18 @@ const HamburgerInner = styled.span`
         width: 100%;
         height: 3px;
         position: absolute;
-        background-color: ${({hamburger})=>hamburger ? '#FFF' : '#262626'};
+        background-color: ${({menuTheme, hamburger})=> (menuTheme == "light" || hamburger) ? '#FFF' : '#262626'};
         top: -8px;
         transform: ${({hamburger}) => hamburger ? 'translateY(8px) rotate(135deg)':'translateY(0) rotate(0)'};
         transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
     }
 `;
 
-const Nav = () => {
+const Nav = ({ menuTheme }) => {
     const[menu, showMenu] = useState(false)
+
+    //console.log(menuTheme)
+
 
     return(
         <>
@@ -112,10 +117,10 @@ const Nav = () => {
                 </StyledDiv>
 
             </StyledNav>
-            
+
             <StyledHamburger hamburger={menu} onClick={()=>showMenu(!menu)}>
                 <HamburgerBox>
-                    <HamburgerInner hamburger={menu} />
+                    <HamburgerInner menuTheme={menuTheme} hamburger={menu} />
                 </HamburgerBox>
             </StyledHamburger>
         </>
@@ -123,3 +128,11 @@ const Nav = () => {
 }
 
 export default Nav
+
+Nav.propTypes = {
+    menuTheme: PropTypes.oneOf(["light", "dark"]),
+};
+
+Nav.defaultProps = {
+    menuTheme: "dark",
+}

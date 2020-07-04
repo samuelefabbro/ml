@@ -13,10 +13,10 @@ const Main = styled.main`
     height: 100%;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ menuTheme, children }) => {
     return (
         <LayoutDiv>
-            <Nav />
+            <Nav menuTheme={menuTheme}/>
             <Main>
                 {children}
             </Main>
