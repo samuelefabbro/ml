@@ -3,8 +3,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
 import Layout from "../components/Layout"
-
 import ProjectCard from "../components/ProjectCard"
+import MaxWidth from "../components/MaxWidth"
 
 
 const Header = styled.section`
@@ -43,18 +43,13 @@ const Title = styled.h1`
     }
 `;
 
-const Wrapper = styled.div`
- padding: 40px;
- max-width: 100%;
- margin: 0 auto;
-
-`;
 
 const Project = styled.div`
-    
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    //grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 10px 20px;
+
     @media (max-width: 840px) {
       grid-template-columns: 1fr 1fr;
     }
@@ -75,18 +70,16 @@ const Projects = ({ data }) => {
 
     return (
         <Layout>
-          
-            <Header>
-                <Logo>
-                    <Link to="/"><img src={document.logo.url} alt="Monica Loddo Logo" /></Link>
-                </Logo>
-                <Title>
-                    {document.projects1.text}
-                </Title>
-            </Header>
+            <MaxWidth size="l">
+                <Header>
+                    <Logo>
+                        <Link to="/"><img src={document.logo.url} alt="Monica Loddo Logo" /></Link>
+                    </Logo>
+                    <Title>
+                        {document.projects1.text}
+                    </Title>
+                </Header>
 
-                
-            <Wrapper>
                 <Project>
                     {projects.map((project, i) => (
                         <ProjectCard
@@ -95,7 +88,7 @@ const Projects = ({ data }) => {
                         />
                     ))}
                 </Project>
-            </Wrapper>
+            </MaxWidth>
         </Layout>
     )
 }

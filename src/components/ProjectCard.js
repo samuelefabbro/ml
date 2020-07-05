@@ -17,6 +17,7 @@ const Card = styled.div`
 
 const Image = styled.div`
     max-width: 100%;
+    width: 100%;
 `;
 
 const Content = styled.div`
