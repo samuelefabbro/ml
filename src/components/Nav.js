@@ -41,12 +41,12 @@ const StyledDiv = styled.div`
 `;
 
 const Logo = styled.div`
-     
+
      margin-top 100px;
      img {
         width: 60px;
      }
-     
+
 `;
 
 const MenuItems = styled.div`
@@ -153,8 +153,8 @@ const Nav = ({ menuTheme }) => {
                         <Link to="/contact">Contact</Link>
                     </MenuItems>
                     <Social>
-                        <Link to="http://instagram.com"><img src={Instagram} alt="Monica Loddo Facebook"/></Link>
-                        <Link to="http://facebook.com"><img src={Facebook} alt="Monica Loddo Facebook"/></Link>
+                        <a href="http://instagram.com"><img src={Instagram} alt="Monica Loddo Facebook"/></a>
+                        <a href="http://facebook.com"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
                     </Social>
                 </StyledDiv>
 

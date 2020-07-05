@@ -1,5 +1,5 @@
 import { Parser } from 'html-to-react'
-import React from 'react'
+import React, { Fragment } from 'react'
 import Layout from "../components/Layout"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
@@ -48,7 +48,7 @@ const Title = styled.h1`
     }
 `;
 
-const Description = styled.p`
+const Description = styled.div`
     font-family: "Work Sans";
     font-size: 24px;
     max-width: 900px;
@@ -105,7 +105,7 @@ const MasonryItem = styled.div`
 
 `;
 
-const Paragraph = styled.p`
+const ParagraphContainer = styled.div`
     font-family: "Work Sans";
     font-size: 22px;
     max-width: 900px;
@@ -134,8 +134,6 @@ const About = ({ data }) => {
     const prismicContent = data.allPrismicAbout.edges[0]
     if (!prismicContent) return null
 
-    console.log(prismicContent)
-
     const content = prismicContent.node.data.body.map((slice, index) => {
         // Render the right markup for the given slice type
         let slice_type = slice.slice_type
@@ -145,25 +143,22 @@ const About = ({ data }) => {
             let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
             return (
-                <Paragraph>
-                    <React.Fragment key={`slice-${index}`}>
+                <ParagraphContainer key={`slice-${index}`}>
+                    <Fragment>
                         {items}
-                    </React.Fragment>
-                </Paragraph>
+                    </Fragment>
+                </ParagraphContainer>
             )
         }
 
         // Image Gallery Slice
         if (slice_type === 'gallery') {
-
             return (
-
                 <MasonryWrapper>
                     <Masonry key={index}>
                         {slice.items.map((item, i) => (
-                            <MasonryItem>
+                            <MasonryItem key={i}>
                                 <AboutImg
-                                    key={i}
                                     src={item.image.url}
                                     alt={item.image.alt}
                                 />
