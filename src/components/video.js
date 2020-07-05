@@ -48,12 +48,14 @@ const Overlay = styled.div`
 
 const Video = () => (
     <VimeoWrapper>
-            <Overlay>
-                <img src={logo} alt="Monica Loddo Logo" />
-            </Overlay>
-        <iframe title="intro" src="https://player.vimeo.com/video/41350501?background=1&autoplay=1&loop=1&byline=0&title=0"
-                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </VimeoWrapper>
+        <Overlay>
+            <img src={logo} alt="Monica Loddo Logo" />
+        </Overlay>
+        <iframe
+            title="intro" src="https://player.vimeo.com/video/41350501?background=1&autoplay=1&loop=1&byline=0&title=0"
+            frameBorder="0"
+        ></iframe>
+    </VimeoWrapper>
 
 
 
