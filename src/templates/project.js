@@ -24,6 +24,13 @@ const TwoImages = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    @media(max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+
+    img {
+        width: 100%;
+    }
 `
 
 const GalleryImg = styled.img`
