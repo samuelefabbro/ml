@@ -5,7 +5,6 @@ import logo from "../images/logo-overlay.svg"
 import logocircle from "../images/MonicaLoddo-logo-circle.svg"
 
 const VimeoWrapper = styled.div`
- {
     position: fixed;
     top: 100px;
     left: 0;
@@ -28,11 +27,9 @@ const VimeoWrapper = styled.div`
         left: 50%;
         transform: translate(-50%, -50%);
      }
- }
 `;
 
 const Overlay = styled.div`
-{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,8 +40,7 @@ const Overlay = styled.div`
             height: 153px;
           }
     }
-}`;
-
+`;
 
 const Video = () => (
     <VimeoWrapper>
