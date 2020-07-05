@@ -1,9 +1,69 @@
 
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from "styled-components"
 import Layout from "../components/Layout"
-import MaxWidth from "../components/MaxWidth"
+
 import ProjectCard from "../components/ProjectCard"
+
+
+const Header = styled.section`
+    padding-top: 100px;
+    padding-bottom: 40px;
+    @media (max-width: 840px) {
+      height: 75vh;
+      padding-top: 50px;
+    }
+`;
+
+const Logo = styled.div`
+    width: 72px;
+    margin: 0 auto;
+    img {
+      width: 72px;
+    }
+    @media (max-width: 840px) {
+      width: 60px;
+      margin: 0 auto 36px auto;
+      img {
+        width: 60px;
+      }
+    }
+`;
+
+const Title = styled.h1`
+    font-size: 36px;
+    font-family: "Work Sans";
+    font-weight: 600;
+    text-align: center;
+    margin: 105px auto 155px auto;
+    @media (max-width: 840px) {
+      margin: 68px auto 90px auto;
+      font-size: 24px;
+    }
+`;
+
+const Wrapper = styled.div`
+ padding: 40px;
+ max-width: 100%;
+ margin: 0 auto;
+
+`;
+
+const Project = styled.div`
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px 20px;
+    @media (max-width: 840px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 540px) {
+      grid-template-columns: 1fr;
+    }
+`;
+
+
 
 const Projects = ({ data }) => {
     const document = data.prismicProjects.data
@@ -15,20 +75,27 @@ const Projects = ({ data }) => {
 
     return (
         <Layout>
-            <MaxWidth>
-                <Link to="/"><img src={document.logo.url} alt="" /></Link>
-                <h1>
+          
+            <Header>
+                <Logo>
+                    <Link to="/"><img src={document.logo.url} alt="Monica Loddo Logo" /></Link>
+                </Logo>
+                <Title>
                     {document.projects1.text}
-                </h1>
-                <div>
+                </Title>
+            </Header>
+
+                
+            <Wrapper>
+                <Project>
                     {projects.map((project, i) => (
                         <ProjectCard
                             data={project}
                             key={i}
                         />
                     ))}
-                </div>
-            </MaxWidth>
+                </Project>
+            </Wrapper>
         </Layout>
     )
 }
@@ -51,13 +118,13 @@ query {
             url
           }
           project_location {
-            html
+            text
           }
           project_title {
-            html
+            text
           }
           project_year {
-            html
+            text
           }
         }
         projects1 {
