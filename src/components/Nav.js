@@ -2,6 +2,10 @@ import React, { useState } from "react"
 import styled,{ createGlobalStyle } from "styled-components"
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import logoWhite from "../images/MonicaLoddo-logo-white.svg"
+import Facebook from "../images/facebook-icon-white.svg"
+import Instagram from "../images/instagram-icon-white.svg"
+
 const GlobalStyle = createGlobalStyle`
     body{
         background-color: #FFFFFF;
@@ -21,21 +25,51 @@ const StyledNav = styled.nav`
     opacity: 0.9;
     transform: ${({showNav})=> showNav ? 'translateX(50vw)' : 'translateX(100vw)'};
     transition: transform 250ms ease-in-out;
+    @media (max-width: 768px) {
+        width: 100vw;
+        transform: ${({showNav})=> showNav ? 'translateX(0vw)' : 'translateX(100vw)'};
+      }
 `;
 
 const StyledDiv = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-    a {
+
+`;
+
+const Logo = styled.div`
+     
+     margin-top 100px;
+     img {
+        width: 60px;
+     }
+     
+`;
+
+const MenuItems = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+     a {
         font-family: "Work Sans";
         font-size: 24px;
         color: white;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 13px;
+        padding-bottom: 13px;
         text-decoration: none;
+     }
+`;
+
+const Social = styled.div`
+     display: flex;
+     justify-content: center;
+     margin-bottom: 50px;
+     a {
+        padding: 10px;
      }
 `;
 
@@ -110,10 +144,18 @@ const Nav = ({ menuTheme }) => {
             <GlobalStyle />
             <StyledNav showNav={menu}>
                 <StyledDiv>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/projects">Projects</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Logo>
+                        <Link to="/"><img src={logoWhite} alt="Monica Loddo Logo"/></Link>
+                    </Logo>
+                    <MenuItems>
+                        <Link to="/projects">Projects</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/contact">Contact</Link>
+                    </MenuItems>
+                    <Social>
+                        <Link to="http://instagram.com"><img src={Instagram} alt="Monica Loddo Facebook"/></Link>
+                        <Link to="http://facebook.com"><img src={Facebook} alt="Monica Loddo Facebook"/></Link>
+                    </Social>
                 </StyledDiv>
 
             </StyledNav>

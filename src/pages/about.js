@@ -1,17 +1,130 @@
 import { Parser } from 'html-to-react'
 import React, { Fragment } from 'react'
-import { graphql } from 'gatsby'
-import styled from "styled-components"
 import Layout from "../components/Layout"
-import MaxWidth from "../components/MaxWidth"
+import { Link, graphql } from 'gatsby'
+import styled from "styled-components"
+
+
 const htmlToReactParser = new Parser()
 
 const AboutImg = styled.img`
     width: 100%;
-    max-width: 500px;
-`
+    max-width: 600px;
+`;
+
+const Header = styled.section`
+    height: 100vh;
+    padding-top: 100px;
+    @media (max-width: 840px) {
+      height: 75vh;
+      padding-top: 50px;
+    }
+`;
+
+const Logo = styled.div`
+    width: 72px;
+    margin: 0 auto;
+    img {
+      width: 72px;
+    }
+    @media (max-width: 840px) {
+      width: 60px;
+      margin: 0 auto 36px auto; 
+      img {
+        width: 60px;
+      }
+    }
+`;
+
+const Title = styled.h1`
+    font-size: 36px;
+    font-family: "Work Sans";
+    font-weight: 600;
+    text-align: center;
+    margin: 105px auto 155px auto;
+    @media (max-width: 840px) {
+      margin: 68px auto 90px auto;
+      font-size: 24px;
+    }
+`;
+
+const Description = styled.p`
+    font-family: "Work Sans";      
+    font-size: 24px;
+    max-width: 900px;
+    line-height: 36px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 60px;
+    @media (max-width: 840px) {
+      max-width: 700px;
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 25px;
+    }
+    @media (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+`;
+
+const MasonryWrapper = styled.div`
+    padding: 0 40px;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    @media (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+`;
+
+const Masonry = styled.div`
+    columns: 2;
+    column-gap: 16px;
+    @media (min-width: 840px) {
+      columns: 3;
+      column-gap: 38px;
+    }
+`;
+
+const MasonryItem = styled.div`
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 38px;
+    @media (max-width: 840px) {
+      margin-bottom: 16px;
+    }
+    
+`;
+
+const Paragraph = styled.p`
+    font-family: "Work Sans";      
+    font-size: 22px;
+    max-width: 900px;
+    line-height: 33px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 60px;
+    @media (max-width: 840px) {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    @media (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+`;
 
 const About = ({ data }) => {
+    const logo = data.allPrismicAbout.edges[0].node.data.logo.url
+    const logoAlt = data.allPrismicAbout.edges[0].node.data.logo.alt
+    const title = data.allPrismicAbout.edges[0].node.data.page_title.text
+    const description = data.allPrismicAbout.edges[0].node.data.description.html
     const prismicContent = data.allPrismicAbout.edges[0]
     if (!prismicContent) return null
 
@@ -26,9 +139,11 @@ const About = ({ data }) => {
             let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
             return (
+              <Paragraph>
                 <Fragment key={`slice-${index}`}>
                     {items}
                 </Fragment>
+              </Paragraph>
             )
         }
 
@@ -36,15 +151,27 @@ const About = ({ data }) => {
         if (slice_type === 'gallery') {
 
             return (
+
+              <MasonryWrapper>
+              <Masonry>
                 <div key={index}>
                     {slice.items.map((item, i) => (
-                        <AboutImg
-                            key={i}
-                            src={item.image.url}
-                            alt={item.image.alt}
-                        />
+                        
+
+                            <MasonryItem>
+                              <AboutImg
+                                key={i}
+                                src={item.image.url}
+                                alt={item.image.alt}
+                              />
+                            </MasonryItem>
+
+  
+                        
                     ))}
                 </div>
+                </Masonry>
+                        </MasonryWrapper>
             )
         }
 
@@ -53,9 +180,19 @@ const About = ({ data }) => {
 
     return (
         <Layout>
-            <MaxWidth>
+              <Header>
+                <Logo>
+                  <Link to="/"><img src={logo} alt={logoAlt}/></Link>
+                </Logo>
+                <Title>
+                  {title}
+                </Title>
+                <Description>
+                  {htmlToReactParser.parse(description)}
+                </Description>
+              </Header>
+
                 {content}
-            </MaxWidth>
         </Layout>
     )
 }
@@ -88,7 +225,7 @@ export const query = graphql`
               }
             }
             description {
-              text
+              html
             }
             logo {
               alt
