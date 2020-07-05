@@ -114,7 +114,7 @@ const HamburgerInner = styled.span`
         width: 100%;
         height: 3px;
         position: absolute;
-        background-color: ${({menuTheme, hamburger})=> (menuTheme == "light" || hamburger) ? '#FFF' : '#262626'};
+        background-color: ${({menuTheme, hamburger})=> (menuTheme === "light" || hamburger) ? '#FFF' : '#262626'};
         top: 8px;
         transform: ${({hamburger}) => hamburger ? 'translateY(-8px) rotate(-135deg)':'translateY(0) rotate(0)'};
         transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
@@ -126,7 +126,7 @@ const HamburgerInner = styled.span`
         width: 100%;
         height: 3px;
         position: absolute;
-        background-color: ${({menuTheme, hamburger})=> (menuTheme == "light" || hamburger) ? '#FFF' : '#262626'};
+        background-color: ${({menuTheme, hamburger})=> (menuTheme === "light" || hamburger) ? '#FFF' : '#262626'};
         top: -8px;
         transform: ${({hamburger}) => hamburger ? 'translateY(8px) rotate(135deg)':'translateY(0) rotate(0)'};
         transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;

@@ -1,11 +1,11 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Layout from "../components/Layout"
 import MaxWidth from "../components/MaxWidth"
 import ProjectFooterNav from "../components/ProjectFooterNav"
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from "styled-components"
-import Img from "gatsby-image"
-import PropTypes from 'prop-types'
+
+
 import { Parser } from 'html-to-react'
 import "normalize.css"
 
