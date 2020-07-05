@@ -29,7 +29,7 @@ const Logo = styled.div`
     }
     @media (max-width: 840px) {
       width: 60px;
-      margin: 0 auto 36px auto; 
+      margin: 0 auto 36px auto;
       img {
         width: 60px;
       }
@@ -49,7 +49,7 @@ const Title = styled.h1`
 `;
 
 const Description = styled.p`
-    font-family: "Work Sans";      
+    font-family: "Work Sans";
     font-size: 24px;
     max-width: 900px;
     line-height: 36px;
@@ -93,14 +93,20 @@ const MasonryItem = styled.div`
     display: inline-block;
     vertical-align: top;
     margin-bottom: 38px;
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+
     @media (max-width: 840px) {
       margin-bottom: 16px;
     }
-    
+
 `;
 
 const Paragraph = styled.p`
-    font-family: "Work Sans";      
+    font-family: "Work Sans";
     font-size: 22px;
     max-width: 900px;
     line-height: 33px;
@@ -139,11 +145,11 @@ const About = ({ data }) => {
             let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
             return (
-              <Paragraph>
-                <Fragment key={`slice-${index}`}>
-                    {items}
-                </Fragment>
-              </Paragraph>
+                <Paragraph>
+                    <Fragment key={`slice-${index}`}>
+                        {items}
+                    </Fragment>
+                </Paragraph>
             )
         }
 
@@ -152,26 +158,19 @@ const About = ({ data }) => {
 
             return (
 
-              <MasonryWrapper>
-              <Masonry>
-                <div key={index}>
-                    {slice.items.map((item, i) => (
-                        
-
+                <MasonryWrapper>
+                    <Masonry key={index}>
+                        {slice.items.map((item, i) => (
                             <MasonryItem>
-                              <AboutImg
-                                key={i}
-                                src={item.image.url}
-                                alt={item.image.alt}
-                              />
+                                <AboutImg
+                                    key={i}
+                                    src={item.image.url}
+                                    alt={item.image.alt}
+                                />
                             </MasonryItem>
-
-  
-                        
-                    ))}
-                </div>
-                </Masonry>
-                        </MasonryWrapper>
+                        ))}
+                    </Masonry>
+                </MasonryWrapper>
             )
         }
 
@@ -180,19 +179,19 @@ const About = ({ data }) => {
 
     return (
         <Layout>
-              <Header>
+            <Header>
                 <Logo>
-                  <Link to="/"><img src={logo} alt={logoAlt}/></Link>
+                    <Link to="/"><img src={logo} alt={logoAlt} /></Link>
                 </Logo>
                 <Title>
-                  {title}
+                    {title}
                 </Title>
                 <Description>
-                  {htmlToReactParser.parse(description)}
+                    {htmlToReactParser.parse(description)}
                 </Description>
-              </Header>
+            </Header>
 
-                {content}
+            {content}
         </Layout>
     )
 }
