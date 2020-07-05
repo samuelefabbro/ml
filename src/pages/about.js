@@ -1,5 +1,5 @@
 import { Parser } from 'html-to-react'
-import React, { Fragment } from 'react'
+import React from 'react'
 import Layout from "../components/Layout"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
@@ -136,46 +136,46 @@ const About = ({ data }) => {
 
     console.log(prismicContent)
 
-    // const content = prismicContent.node.data.body.map((slice, index) => {
-    //     // Render the right markup for the given slice type
-    //     let slice_type = slice.slice_type
+    const content = prismicContent.node.data.body.map((slice, index) => {
+        // Render the right markup for the given slice type
+        let slice_type = slice.slice_type
 
-    //     // Text Slice
-    //     if (slice_type === 'paragraph') {
-    //         let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
+        // Text Slice
+        if (slice_type === 'paragraph') {
+            let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
-    //         return (
-    //             <Paragraph>
-    //                 <Fragment key={`slice-${index}`}>
-    //                     {items}
-    //                 </Fragment>
-    //             </Paragraph>
-    //         )
-    //     }
+            return (
+                <Paragraph>
+                    <React.Fragment key={`slice-${index}`}>
+                        {items}
+                    </React.Fragment>
+                </Paragraph>
+            )
+        }
 
-    //     // Image Gallery Slice
-    //     if (slice_type === 'gallery') {
+        // Image Gallery Slice
+        if (slice_type === 'gallery') {
 
-    //         return (
+            return (
 
-    //             <MasonryWrapper>
-    //                 <Masonry key={index}>
-    //                     {slice.items.map((item, i) => (
-    //                         <MasonryItem>
-    //                             <AboutImg
-    //                                 key={i}
-    //                                 src={item.image.url}
-    //                                 alt={item.image.alt}
-    //                             />
-    //                         </MasonryItem>
-    //                     ))}
-    //                 </Masonry>
-    //             </MasonryWrapper>
-    //         )
-    //     }
+                <MasonryWrapper>
+                    <Masonry key={index}>
+                        {slice.items.map((item, i) => (
+                            <MasonryItem>
+                                <AboutImg
+                                    key={i}
+                                    src={item.image.url}
+                                    alt={item.image.alt}
+                                />
+                            </MasonryItem>
+                        ))}
+                    </Masonry>
+                </MasonryWrapper>
+            )
+        }
 
-    //     return null
-    // })
+        return null
+    })
 
     return (
         <Layout>
@@ -191,7 +191,7 @@ const About = ({ data }) => {
                 </Description>
             </Header>
 
-            {/* {content} */}
+            {content}
         </Layout>
     )
 }
