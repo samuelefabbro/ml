@@ -136,46 +136,46 @@ const About = ({ data }) => {
 
     console.log(prismicContent)
 
-    const content = prismicContent.node.data.body.map((slice, index) => {
-        // Render the right markup for the given slice type
-        let slice_type = slice.slice_type
+    // const content = prismicContent.node.data.body.map((slice, index) => {
+    //     // Render the right markup for the given slice type
+    //     let slice_type = slice.slice_type
 
-        // Text Slice
-        if (slice_type === 'paragraph') {
-            let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
+    //     // Text Slice
+    //     if (slice_type === 'paragraph') {
+    //         let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
 
-            return (
-                <Paragraph>
-                    <Fragment key={`slice-${index}`}>
-                        {items}
-                    </Fragment>
-                </Paragraph>
-            )
-        }
+    //         return (
+    //             <Paragraph>
+    //                 <Fragment key={`slice-${index}`}>
+    //                     {items}
+    //                 </Fragment>
+    //             </Paragraph>
+    //         )
+    //     }
 
-        // Image Gallery Slice
-        if (slice_type === 'gallery') {
+    //     // Image Gallery Slice
+    //     if (slice_type === 'gallery') {
 
-            return (
+    //         return (
 
-                <MasonryWrapper>
-                    <Masonry key={index}>
-                        {slice.items.map((item, i) => (
-                            <MasonryItem>
-                                <AboutImg
-                                    key={i}
-                                    src={item.image.url}
-                                    alt={item.image.alt}
-                                />
-                            </MasonryItem>
-                        ))}
-                    </Masonry>
-                </MasonryWrapper>
-            )
-        }
+    //             <MasonryWrapper>
+    //                 <Masonry key={index}>
+    //                     {slice.items.map((item, i) => (
+    //                         <MasonryItem>
+    //                             <AboutImg
+    //                                 key={i}
+    //                                 src={item.image.url}
+    //                                 alt={item.image.alt}
+    //                             />
+    //                         </MasonryItem>
+    //                     ))}
+    //                 </Masonry>
+    //             </MasonryWrapper>
+    //         )
+    //     }
 
-        return null
-    })
+    //     return null
+    // })
 
     return (
         <Layout>
@@ -191,7 +191,7 @@ const About = ({ data }) => {
                 </Description>
             </Header>
 
-            {content}
+            {/* {content} */}
         </Layout>
     )
 }
