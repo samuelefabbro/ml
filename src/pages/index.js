@@ -12,17 +12,18 @@ font-family: "Work Sans", sans-serif;
 -moz-osx-font-smoothing: grayscale;
   width: 100%;
   background: #ffffff;
-  height: 250px;
+  height: 230px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 34px;
+  padding-top: 17px;
   @media (max-width: 768px) {
     height: 190px;
     padding-top: 32px;
   }
   h1 {
     font-weight: 700;
+    line-height: 1.2em;
     font-size: 36px;
     margin:0;
     letter-spacing: 0.3px;
@@ -33,13 +34,13 @@ font-family: "Work Sans", sans-serif;
   p {
     font-weight: 400;
     font-size: 14px;
-    margin-top: 3px;
     letter-spacing: -0.03em;
     @media (max-width: 768px) {
       font-size: 12px;
     }
   }
   img {
+    height: 130px;
     margin: 0;
     padding-bottom: 8px;
     @media (max-width: 768px) {
@@ -62,7 +63,7 @@ const VimeoWrapper = styled.div`
     z-index: -1;
     pointer-events: none;
     overflow: hidden;
-    background-image: url(${logocircle});
+    // background-image: url(${logocircle});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

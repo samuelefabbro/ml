@@ -46,8 +46,8 @@ const Title = styled.h1`
 
 const Project = styled.div`
     display: grid;
-    //grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
+    //grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 10px 20px;
 
     @media (max-width: 840px) {

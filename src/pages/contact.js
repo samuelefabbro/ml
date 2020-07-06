@@ -39,6 +39,22 @@ const Wrapper = styled.div`
 
 `;
 
+const Logo = styled.div`
+width: 72px;
+margin: 0 auto;
+img {
+  width: 72px;
+}
+@media (max-width: 840px) {
+  width: 60px;
+  margin: 0 auto 36px auto;
+  img {
+    width: 60px;
+  }
+}
+`;
+
+
 
 
 const Contact = ({ data }) => {
@@ -51,7 +67,8 @@ const Contact = ({ data }) => {
         <Layout menuTheme="light">
             <Wrapper>
                 <SEO title="Monica Loddo | Architect and Interior Designer | Contact page" />
-                <img src={document.logo_white.url} alt="" />
+                <Logo><img src={document.logo_white.url} alt="" /></Logo>
+                
                 <h1>
                     {document.contact.text}
                 </h1>
