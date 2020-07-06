@@ -1,8 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Nav from "./Nav"
-
-import "normalize.css"
 import '../styles/globals.scss';
 
 const LayoutDiv = styled.div`
