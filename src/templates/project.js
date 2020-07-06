@@ -180,6 +180,7 @@ const projectTemplate = ({ data }) => {
             )
         }
 
+
         return null
     })
 
@@ -202,7 +203,7 @@ const projectTemplate = ({ data }) => {
                     </Location>
 
             </Header>
-                    
+
 
             {bodyContent}
         </Layout>
