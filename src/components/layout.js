@@ -8,6 +8,7 @@ import '../styles/globals.scss';
 const LayoutDiv = styled.div`
     height: 100%;
     position: relative;
+    padding-top: ${({noTopPadding})=> (noTopPadding) ? '0' : '4eme'};
 `
 const Main = styled.main`
     height: 100%;

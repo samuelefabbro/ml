@@ -5,14 +5,53 @@ import ProjectFooterNav from "../components/ProjectFooterNav"
 import { graphql } from 'gatsby'
 import styled from "styled-components"
 
-
 import { Parser } from 'html-to-react'
 import "normalize.css"
 
 const htmlToReactParser = new Parser()
 
+const Hero = styled(MaxWidth)`
+    position: relative;
+    height: 80vh;
+    max-height: 700px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+
+const Metas = styled(MaxWidth)`
+    z-index: 1;
+    padding: 4em 0;
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    color: ${({isHeroImage}) => (isHeroImage) ? 'white' : 'black'};
+    background: ${({isHeroImage}) => console.log(isHeroImage)};
+`
+
 const HeroImg = styled.img`
     width: 100%;
+`
+
+const Year = styled.h5`
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+`
+
+const Title = styled.h1`
+    text-align: center;
+    font-size: 2.75em;
+    line-height: 140%;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin: 0;
+`
+
+const Location = styled.h5`
+    text-align: center;
+    font-size: 1em;
 `
 
 const PostContent = styled.div`
@@ -33,9 +72,12 @@ const TwoImages = styled.div`
     }
 `
 
+const Gallery = styled(MaxWidth)`
+`
+
 const GalleryImg = styled.img`
     width: 100%;
-    max-width: 500px;
+    //max-width: 500px;
 `
 
 const projectTemplate = ({ data }) => {
@@ -46,16 +88,6 @@ const projectTemplate = ({ data }) => {
 
     const bodyContent = project.body.map((slice, index) => {
         let slice_type = slice.__typename
-
-        if (slice_type === "PrismicProjectBodyFullWidthImage") {
-            let img_src = slice.primary.big_image.url
-
-            return (
-                <MaxWidth size="xl" key={index}>
-                    <HeroImg src={img_src} />
-                </MaxWidth>
-            )
-        }
 
         if (slice_type === "PrismicProjectBodyParagraph") {
             return (
@@ -82,7 +114,7 @@ const projectTemplate = ({ data }) => {
 
         if (slice_type === 'PrismicProjectBodyImageGallery') {
             return (
-                <div key={index}>
+                <Gallery key={index}>
                     {slice.items.map((item, i) => (
                         <GalleryImg
                             key={i}
@@ -90,7 +122,7 @@ const projectTemplate = ({ data }) => {
                             alt={item.gallery_image.alt}
                         />
                     ))}
-                </div>
+                </Gallery>
             )
         }
 
@@ -102,18 +134,41 @@ const projectTemplate = ({ data }) => {
             )
         }
 
-
-
         return null
     })
 
+    let heroImage = project.body.filter(slice => {
+        return slice.__typename === "PrismicProjectBodyFullWidthImage"
+    }).map((slice, index) => {
+        let img_src = slice.primary.big_image.url
+
+        return (
+            <HeroImg src={img_src} key={index}/>
+        )
+    })
 
     return (
-        <Layout className="Project">
-            {htmlToReactParser.parse(project.year.text)}
-            {htmlToReactParser.parse(project.title.text)}
-            {htmlToReactParser.parse(project.location.text)}
+        <Layout className="Project" noTopPadding>
+            <Hero size="xl">
+                <Metas isHeroImage={heroImage}>
+                    <Year>
+                        {htmlToReactParser.parse(project.year.text)}
+                    </Year>
+                    <Title>
+                        {htmlToReactParser.parse(project.title.text)}
+                    </Title>
+                    <Location>
+                        {htmlToReactParser.parse(project.location.text)}
+                    </Location>
+                </Metas>
 
+                {/* If there is a heroImage, show a hero image. */}
+                {heroImage && (
+                    <>
+                        {heroImage}
+                    </>
+                )}
+            </Hero>
             {bodyContent}
         </Layout>
     )
