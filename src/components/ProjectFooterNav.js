@@ -53,5 +53,5 @@ const ProjectFooterNav = ({ data }) => {
 export default ProjectFooterNav
 
 ProjectFooterNav.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.array,
 };
