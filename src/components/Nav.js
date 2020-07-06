@@ -19,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
 
 const StyledNav = styled.nav`
     position: fixed;
+    top: 0;
+    z-index: 100;
     width: 50vw;
     height: 100vh;
     background: #262626;
