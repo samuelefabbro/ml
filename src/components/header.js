@@ -1,5 +1,4 @@
 import React from "react"
-import "normalize.css"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import logo from "../images/MonicaLoddo-logo-circle.svg"

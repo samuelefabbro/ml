@@ -1,5 +1,4 @@
 import React from "react"
-import "normalize.css"
 import styled from "styled-components"
 import logo from "../images/logo-overlay.svg"
 import logocircle from "../images/MonicaLoddo-logo-circle.svg"

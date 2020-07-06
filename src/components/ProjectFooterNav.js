@@ -1,5 +1,4 @@
 import React from "react"
-import "normalize.css"
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 

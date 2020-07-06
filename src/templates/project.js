@@ -7,7 +7,6 @@ import styled from "styled-components"
 import logo from "../images/logo-black.svg"
 
 import { Parser } from 'html-to-react'
-import "normalize.css"
 
 const htmlToReactParser = new Parser()
 
