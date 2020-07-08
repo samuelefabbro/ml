@@ -91,6 +91,10 @@ const StyledHamburger = styled.button`
         outline: none;
         box-shadow: none;
     }
+    @media (max-width: 768px) {
+        top: 12px;
+        right: 12px;
+      }
 `;
 
 const HamburgerBox = styled.span`
@@ -98,6 +102,9 @@ const HamburgerBox = styled.span`
     height: 20px;
     display: inline-block;
     position: relative;
+    @media (max-width: 768px) {
+        width: 20px;
+      }
 `;
 
 const HamburgerInner = styled.span`
@@ -120,6 +127,11 @@ const HamburgerInner = styled.span`
         top: 8px;
         transform: ${({hamburger}) => hamburger ? 'translateY(-8px) rotate(-135deg)':'translateY(0) rotate(0)'};
         transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+        @media (max-width: 768px) {
+            transform: ${({hamburger}) => hamburger ? 'translateY(-6px) rotate(-135deg)':'translateY(0) rotate(0)'};
+            height: 2px;
+            top: 6px;
+          }
     }
 
     &::before{
@@ -132,6 +144,11 @@ const HamburgerInner = styled.span`
         top: -8px;
         transform: ${({hamburger}) => hamburger ? 'translateY(8px) rotate(135deg)':'translateY(0) rotate(0)'};
         transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+        @media (max-width: 768px) {
+            transform: ${({hamburger}) => hamburger ? 'translateY(6px) rotate(135deg)':'translateY(0) rotate(0)'};
+            height: 2px;
+            top: -6px;
+          }
     }
 `;
 
@@ -155,7 +172,7 @@ const Nav = ({ menuTheme }) => {
                         <Link to="/contact">Contact</Link>
                     </MenuItems>
                     <Social>
-                        <a href="http://instagram.com"><img src={Instagram} alt="Monica Loddo Facebook"/></a>
+                        <a href="http://instagram.com"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
                         <a href="http://facebook.com"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
                     </Social>
                 </StyledDiv>

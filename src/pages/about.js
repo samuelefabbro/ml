@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import Layout from "../components/Layout"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
+import Footer from "../components/Footer"
 
 
 const htmlToReactParser = new Parser()
@@ -187,6 +188,7 @@ const About = ({ data }) => {
             </Header>
 
             {content}
+            <Footer/>
         </Layout>
     )
 }

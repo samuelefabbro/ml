@@ -5,6 +5,7 @@ import ProjectFooterNav from "../components/ProjectFooterNav"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
 import logo from "../images/logo-black.svg"
+import Footer from "../components/Footer"
 
 import { Parser } from 'html-to-react'
 
@@ -205,6 +206,8 @@ const projectTemplate = ({ data }) => {
 
 
             {bodyContent}
+
+            <Footer />
         </Layout>
     )
 }

@@ -5,6 +5,7 @@ import styled from "styled-components"
 import Layout from "../components/Layout"
 import ProjectCard from "../components/ProjectCard"
 import MaxWidth from "../components/MaxWidth"
+import Footer from "../components/Footer"
 
 
 const Header = styled.section`
@@ -88,6 +89,8 @@ const Projects = ({ data }) => {
                         />
                     ))}
                 </Project>
+
+                <Footer />
             </MaxWidth>
         </Layout>
     )

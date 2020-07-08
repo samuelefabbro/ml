@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from 'gatsby'
 import styled from "styled-components"
-import Instagram from "../images/instagram-icon-black.svg"
-import Facebook from "../images/facebook-icon-black.svg"
+import Instagram from "../images/instagram-icon-white.svg"
+import Facebook from "../images/facebook-icon-white.svg"
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -32,12 +32,13 @@ const Social = styled.div`
 const Menu = styled.div`
     font-family: "Work Sans";
     margin-bottom: 8px;
+    color: #ffffff;
     @media (max-width: 768px) {
       margin-bottom: 6px;
     }
     a {
       text-decoration: none;
-      color: #262626;
+      color: #ffffff;
       font-size: 20px;
       margin-left: 5px;
       margin-right: 5px;
@@ -49,7 +50,7 @@ const Menu = styled.div`
 
 const Copyright = styled.div`
     font-size: 12px;
-    color: #262626;
+    color: #ffffff;
     @media (max-width: 768px) {
       font-size: 9px;
     }

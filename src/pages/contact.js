@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import styled from "styled-components"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
+import FooterWhite from "../components/FooterWhite"
 
 const Wrapper = styled.div`
   background: #262626;
@@ -75,7 +76,9 @@ const Contact = ({ data }) => {
                 {htmlToReactParser.parse(document.paragraph.html)}
                 {htmlToReactParser.parse(document.email.html)}
                 {htmlToReactParser.parse(document.phone.html)}
+                <FooterWhite />
             </Wrapper>
+
         </Layout>
     )
 }
