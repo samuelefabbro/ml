@@ -21,7 +21,7 @@ const Image = styled.div`
 
 const Content = styled.div`
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0 25px 0;
 `;
 
 const Year = styled.div`
@@ -31,11 +31,11 @@ const Year = styled.div`
 `;
 
 const Title = styled.div`
-    font-size: 32px;
+    font-size: 30px;
+    line-height: 1.2em;
     font-family: "Work Sans";
     font-weight: 600;
-    margin-bottom: 6px;
-    margin-top: 3px;
+    margin: 0;
 `;
 
 const Location = styled.div`

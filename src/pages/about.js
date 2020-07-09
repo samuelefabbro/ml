@@ -17,7 +17,7 @@ const Header = styled.section`
     height: 100vh;
     padding-top: 100px;
     @media (max-width: 840px) {
-      height: 75vh;
+      height: 100%;
       padding-top: 50px;
     }
 `;
@@ -38,13 +38,13 @@ const Logo = styled.div`
 `;
 
 const Title = styled.h1`
-    font-size: 36px;
+    font-size: 32px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
-    margin: 105px auto 155px auto;
+    margin: 105px auto 150px auto;
     @media (max-width: 840px) {
-      margin: 68px auto 90px auto;
+      margin: 58px auto 75px auto;
       font-size: 24px;
     }
 `;
@@ -60,40 +60,43 @@ const Description = styled.div`
     margin-bottom: 60px;
     @media (max-width: 840px) {
       max-width: 700px;
-      margin-bottom: 20px;
+      margin-bottom: 100px;
       font-size: 18px;
       line-height: 25px;
     }
     @media (max-width: 500px) {
+      margin-bottom: 40px;
       padding-left: 20px;
       padding-right: 20px;
     }
 `;
 
 const MasonryWrapper = styled.div`
-    padding: 0 40px;
-    max-width: 1440px;
+    padding: 40px 40px 0 40px;
+    max-width: 1920px;
     margin-right: auto;
     margin-left: auto;
     @media (max-width: 500px) {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 10px 18px;
     }
 `;
 
 const Masonry = styled.div`
-    columns: 2;
-    column-gap: 16px;
-    @media (min-width: 840px) {
-      columns: 3;
-      column-gap: 38px;
+    columns: 3;
+    column-gap: 38px;
+    @media (max-width: 840px) {
+      columns: 2;
+    }
+    @media (max-width: 500px) {
+      columns: 2;
+      column-gap: 15px;
     }
 `;
 
 const MasonryItem = styled.div`
     display: inline-block;
     vertical-align: top;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
     width: 100%;
 
     img {
@@ -101,7 +104,11 @@ const MasonryItem = styled.div`
     }
 
     @media (max-width: 840px) {
-      margin-bottom: 16px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 500px) {
+      margin-bottom: 6px;
     }
 
 `;
@@ -114,16 +121,21 @@ const ParagraphContainer = styled.div`
     margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     @media (max-width: 840px) {
-      margin-top: 40px;
       margin-bottom: 20px;
       font-size: 16px;
       line-height: 22px;
     }
+    @media (max-width: 840px) {
+      max-width: 700px;
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 25px;
+    }
     @media (max-width: 500px) {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 18px;
+      padding-right: 18px;
     }
 `;
 
