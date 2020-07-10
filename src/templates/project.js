@@ -213,16 +213,6 @@ const projectTemplate = ({ data }) => {
         }
         
 
-        if (slice_type === 'PrismicProjectBodyLinks') {
-            return (
-              <div key={index}>
-              {slice.items.map((item, i) => (
-                  <Link to={`/projects/${item.all_projects_prev_next.uid}`}>{item.text_link}</Link>
-              ))}
-          </div>
-            )
-        }
-
 
         return null
     })
@@ -314,58 +304,78 @@ query PageQuery($uid: String) {
             text
           }
           body {
-            ... on PrismicProjectBodyImageGallery {
-              id
-              slice_type
-              items {
-                gallery_image {
-                  url
-                  alt
-                }
-              }
-            }
-            ... on PrismicProjectBodyLinks {
-              id
-              slice_type
-              items {
-                text_link
-                all_projects_prev_next {
-                  uid
-                }
-              }
-            }
-            ... on PrismicProjectBodyParagraph {
-              id
-              primary {
-                paragraph {
-                  html
-                }
-              }
-            }
-            ... on PrismicProjectBody2Images {
-              id
-              primary {
-                img_left {
-                  alt
-                  url
-                }
-                img_right {
-                  alt
-                  url
-                }
-              }
-            }
-            ... on PrismicProjectBodyFullWidthImage {
-              id
-              primary {
-                big_image {
-                  alt
-                  copyright
-                  url
-                }
-              }
+        ... on PrismicProjectBodyParagraph {
+          id
+          primary {
+            paragraph {
+              html
             }
           }
+        }
+        ... on PrismicProjectBodyFullWidthImage {
+          id
+          primary {
+            big_image {
+              alt
+              url
+            }
+          }
+        }
+        ... on PrismicProjectBodyImageWithCaption {
+          id
+          primary {
+            image {
+              url
+              alt
+            }
+            caption {
+              text
+            }
+          }
+        }
+        ... on PrismicProjectBody2Images {
+          id
+          primary {
+            img_left {
+              alt
+              url
+            }
+            img_right {
+              alt
+              url
+            }
+          }
+        }
+        ... on PrismicProjectBodyImageGallery {
+          id
+          slice_type
+          items {
+            gallery_image {
+              alt
+              url
+            }
+          }
+        }
+        ... on PrismicProjectBodyPrevious {
+          id
+          primary {
+            prev_project {
+              uid
+            }
+          }
+          slice_type
+        }
+        ... on PrismicProjectBodyNext {
+          id
+          slice_type
+          primary {
+            prev_project {
+              uid
+            }
+          }
+        }
+      }
+
         }
   }
 }
