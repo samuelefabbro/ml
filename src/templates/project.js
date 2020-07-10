@@ -185,6 +185,20 @@ const projectTemplate = ({ data }) => {
           )
       }
 
+      if (slice_type === "PrismicProjectBodyImageWithCaption") {
+        let img_src = slice.primary.image.url
+        let img_alt = slice.primary.image.alt
+        let caption = slice.primary.caption.text
+        return (
+            <BigImage key={index}>
+
+                    <img src={img_src} alt={img_alt}/>
+                    <p>{caption}</p>
+
+            </BigImage>
+        )
+    }
+
         if (slice_type === "PrismicProjectBody2Images") {
             let img_1 = slice.primary.img_left.url
             let alt_1 = slice.primary.img_left.alt
@@ -211,8 +225,32 @@ const projectTemplate = ({ data }) => {
                 </Gallery>
             )
         }
-        
 
+        
+        if (slice_type === "PrismicProjectBodyNext") {
+          let nextLink = slice.primary.prev_project.uid
+        
+          return (
+              <div key={index}>
+  
+                <Link to={`/projects/${nextLink}`}>Next Project</Link>
+  
+              </div>
+          )
+      }
+      if (slice_type === "PrismicProjectBodyPrevious") {
+        let prevLink = slice.primary.prev_project.uid
+        console.log(prevLink)
+      
+        return (
+            <div key={index}>
+
+              <Link to={`/projects/${prevLink}`}>Prev Project</Link>
+
+            </div>
+        )
+    }
+        
 
         return null
     })
@@ -257,36 +295,6 @@ export default projectTemplate
 // };
 
 
-
-// @Sam Similar to the ProjectCard component, ProjectFooterNav can and should be pulled out into its own file!
-// Below is an example of how to keep this component inside another file. See ProjectFooterNav.js to see
-// the same snipped pulled out into its own file with its own scss stylesheet.
-// Including a component within another file, like below, should be
-// only used if the component is _really_ small and uncomplicated.
-// const ProjectFooterNav = ({ data }) => {
-//     console.log(data)
-//     return (
-//         <div>
-//             <div>
-//                 <Link to="/projects">
-//                     All Projects
-//                 </Link>
-//             </div>
-//             <div>
-//                 <div>
-//                     <Link to={`/projects/museum`}>
-//                         Previous Project / Museum
-//                     </Link>
-//                 </div>
-//                 <div>
-//                     <Link to={`/projects/museum`}>
-//                         Next Project / Museum
-//                     </Link>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
 
 
 export const query = graphql`
@@ -358,6 +366,7 @@ query PageQuery($uid: String) {
         }
         ... on PrismicProjectBodyPrevious {
           id
+          slice_type
           primary {
             prev_project {
               uid

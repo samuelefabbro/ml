@@ -1,201 +1,201 @@
 {
-  "Main": {
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "slug",
-        "placeholder": "slug"
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "slug",
+        "placeholder" : "slug"
       }
     },
-    "title": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading1",
-        "label": "Title",
-        "placeholder": "Title"
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title",
+        "placeholder" : "Title"
       }
     },
-    "year": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading3",
-        "label": "year",
-        "placeholder": "Year"
+    "year" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading3",
+        "label" : "year",
+        "placeholder" : "Year"
       }
     },
-    "location": {
-      "type": "StructuredText",
-      "config": {
-        "single": "heading2",
-        "label": "Location",
-        "placeholder": "Location"
+    "location" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Location",
+        "placeholder" : "Location"
       }
     },
-    "body": {
-      "type": "Slices",
-      "fieldset": "Slice zone",
-      "config": {
-        "labels": {
-          "2_images": [],
-          "paragraph": [],
-          "full_width_image": [],
-          "image_gallery": [],
-          "more_projects": [],
-          "links": [],
-          "previous": [],
-          "next": [],
-          "image_with_caption": []
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "2_images" : [ ],
+          "paragraph" : [ ],
+          "full_width_image" : [ ],
+          "image_gallery" : [ ],
+          "more_projects" : [ ],
+          "links" : [ ],
+          "previous" : [ ],
+          "next" : [ ],
+          "image_with_caption" : [ ]
         },
-        "choices": {
-          "paragraph": {
-            "type": "Slice",
-            "fieldset": "Paragraph",
-            "description": "Text",
-            "icon": "text_fields",
-            "display": "list",
-            "non-repeat": {
-              "paragraph": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, hyperlink",
-                  "allowTargetBlank": true,
-                  "label": "Paragraph",
-                  "placeholder": "Text"
+        "choices" : {
+          "paragraph" : {
+            "type" : "Slice",
+            "fieldset" : "Paragraph",
+            "description" : "Text",
+            "icon" : "text_fields",
+            "display" : "list",
+            "non-repeat" : {
+              "paragraph" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, hyperlink",
+                  "allowTargetBlank" : true,
+                  "label" : "Paragraph",
+                  "placeholder" : "Text"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           },
-          "full_width_image": {
-            "type": "Slice",
-            "fieldset": "Big Image",
-            "description": "Image with option of 100% width",
-            "icon": "image",
-            "display": "list",
-            "non-repeat": {
-              "big_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "width": 1920
+          "full_width_image" : {
+            "type" : "Slice",
+            "fieldset" : "Big Image",
+            "description" : "Image with option of 100% width",
+            "icon" : "image",
+            "display" : "list",
+            "non-repeat" : {
+              "big_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1920
                   },
-                  "thumbnails": [],
-                  "label": "big image"
+                  "thumbnails" : [ ],
+                  "label" : "big image"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           },
-          "image_with_caption": {
-            "type": "Slice",
-            "fieldset": "Image with Caption",
-            "description": "Immagine grande con didascalia",
-            "icon": "landscape",
-            "display": "list",
-            "non-repeat": {
-              "image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "width": 1920
+          "image_with_caption" : {
+            "type" : "Slice",
+            "fieldset" : "Image with Caption",
+            "description" : "Immagine grande con didascalia",
+            "icon" : "landscape",
+            "display" : "list",
+            "non-repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1920
                   },
-                  "thumbnails": [],
-                  "label": "image"
+                  "thumbnails" : [ ],
+                  "label" : "image"
                 }
               },
-              "caption": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "paragraph",
-                  "label": "Caption"
+              "caption" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Caption"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           },
-          "2_images": {
-            "type": "Slice",
-            "fieldset": "2 images",
-            "description": "Two images stacked horizontally",
-            "icon": "add_box",
-            "display": "list",
-            "non-repeat": {
-              "img_left": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "height": 1280
+          "2_images" : {
+            "type" : "Slice",
+            "fieldset" : "2 images",
+            "description" : "Two images stacked horizontally",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "img_left" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "height" : 1280
                   },
-                  "thumbnails": [],
-                  "label": "img left"
+                  "thumbnails" : [ ],
+                  "label" : "img left"
                 }
               },
-              "img_right": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "height": 1280
+              "img_right" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "height" : 1280
                   },
-                  "thumbnails": [],
-                  "label": "img right"
+                  "thumbnails" : [ ],
+                  "label" : "img right"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           },
-          "image_gallery": {
-            "type": "Slice",
-            "fieldset": "Image Gallery",
-            "description": "Add images",
-            "icon": "face",
-            "display": "list",
-            "non-repeat": {},
-            "repeat": {
-              "gallery_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {
-                    "width": 1440
+          "image_gallery" : {
+            "type" : "Slice",
+            "fieldset" : "Image Gallery",
+            "description" : "Add images",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "gallery_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1440
                   },
-                  "thumbnails": [],
-                  "label": "gallery image"
+                  "thumbnails" : [ ],
+                  "label" : "gallery image"
                 }
               }
             }
           },
-          "previous": {
-            "type": "Slice",
-            "fieldset": "Previous",
-            "description": "prev project",
-            "icon": "arrow_back",
-            "display": "list",
-            "non-repeat": {
-              "prev_project": {
-                "type": "Link",
-                "config": {
-                  "label": "Prev project",
-                  "placeholder": "Previous Project link"
+          "previous" : {
+            "type" : "Slice",
+            "fieldset" : "Previous",
+            "description" : "prev project",
+            "icon" : "arrow_back",
+            "display" : "list",
+            "non-repeat" : {
+              "prev_project" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Prev project",
+                  "placeholder" : "Previous Project link"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           },
-          "next": {
-            "type": "Slice",
-            "fieldset": "Next",
-            "description": "next project",
-            "icon": "arrow_forward",
-            "display": "list",
-            "non-repeat": {
-              "prev_project": {
-                "type": "Link",
-                "config": {
-                  "label": "next project",
-                  "placeholder": "Next Project link"
+          "next" : {
+            "type" : "Slice",
+            "fieldset" : "Next",
+            "description" : "next project",
+            "icon" : "arrow_forward",
+            "display" : "list",
+            "non-repeat" : {
+              "prev_project" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "next project",
+                  "placeholder" : "Next Project link"
                 }
               }
             },
-            "repeat": {}
+            "repeat" : { }
           }
         }
       }
