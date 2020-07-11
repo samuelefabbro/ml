@@ -172,8 +172,8 @@ const Nav = ({ menuTheme }) => {
                         <Link to="/contact">Contact</Link>
                     </MenuItems>
                     <Social>
-                        <a href="http://instagram.com"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
-                        <a href="http://facebook.com"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
+                        <a href="https://www.instagram.com/monica_loddo_ml/" target="_blank"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
+                        <a href="https://www.facebook.com/monica.loddo.5" target="_blank"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
                     </Social>
                 </StyledDiv>
 
