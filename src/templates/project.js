@@ -3,6 +3,8 @@ import Layout from "../components/Layout"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
 import logo from "../images/logo-black.svg"
+import next from "../images/arrow-next.svg"
+import prev from "../images/arrow-prev.svg"
 import Footer from "../components/Footer"
 
 import { Parser } from 'html-to-react'
@@ -15,7 +17,7 @@ const Header = styled.section`
     width: 100%;
     padding-top: 100px;
     @media (max-width: 840px) {
-      height: 75vh;
+      height: 55vh;
       padding-top: 50px;
     }
     @media(max-width: 500px) {
@@ -115,6 +117,28 @@ const BigImage = styled.div`
     }
 `;
 
+const XlImage = styled.div`
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    @media(max-width: 768px) {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+    p {
+      padding-top: 10px;
+      font-size: 16px;
+      text-align: center;
+      @media(max-width: 500px) {
+        font-size: 12px;
+    }
+    }
+`;
+
 const TwoImages = styled.div`
     padding: 40px 40px 60px 40px;
     display: grid;
@@ -151,7 +175,60 @@ const Gallery = styled.div`
 
 const GalleryImg = styled.img`
     width: 100%;
-    //max-width: 500px;
+`;
+
+const PrevLink = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+    margin-left: 40px;
+    margin-top: 12px;
+    img {
+      width: 27px;
+      margin-right: 12px;
+      margin-top: 3px;
+      @media(max-width: 500px) {
+        width: 20px;
+        margin-right: 6px;
+        margin-top: 3px;
+    }
+  }
+    a {
+      text-decoration: none;
+      color: #262626;
+      height: 26px;
+    }
+    @media(max-width: 500px) {
+      font-size: 16px;
+  }
+`;
+
+const NextLink = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    float: right;
+    margin-top: 12px;
+    margin-right: 40px;
+    img {
+      width: 27px;
+      margin-left: 12px;
+      margin-top: 3px;
+      @media(max-width: 500px) {
+        width: 20px;
+        margin-left: 6px;
+        margin-top: 3px;
+    }
+    }
+    a {
+      text-decoration: none;
+      color: #262626;
+      height: 26px;
+    }
+    @media(max-width: 500px) {
+      font-size: 16px;
+  }
 `;
 
 const projectTemplate = ({ data }) => {
@@ -190,12 +267,12 @@ const projectTemplate = ({ data }) => {
         let img_alt = slice.primary.image.alt
         let caption = slice.primary.caption.text
         return (
-            <BigImage key={index}>
+            <XlImage key={index}>
 
                     <img src={img_src} alt={img_alt}/>
                     <p>{caption}</p>
 
-            </BigImage>
+            </XlImage>
         )
     }
 
@@ -231,23 +308,26 @@ const projectTemplate = ({ data }) => {
           let nextLink = slice.primary.prev_project.uid
         
           return (
-              <div key={index}>
-  
+              <NextLink key={index}>
+              
                 <Link to={`/projects/${nextLink}`}>Next Project</Link>
-  
-              </div>
+                <Link to={`/projects/${nextLink}`}><img src={next} alt="prev"/></Link>
+                
+              </NextLink>
           )
       }
       if (slice_type === "PrismicProjectBodyPrevious") {
         let prevLink = slice.primary.prev_project.uid
-        console.log(prevLink)
       
         return (
-            <div key={index}>
-
-              <Link to={`/projects/${prevLink}`}>Prev Project</Link>
-
-            </div>
+            <PrevLink key={index}>
+              
+              <Link to={`/projects/${prevLink}`}>
+              <img src={prev} alt="prev"/></Link>
+              <Link to={`/projects/${prevLink}`}>
+                Prev Project</Link>
+              
+            </PrevLink>
         )
     }
         
