@@ -57,6 +57,7 @@ const MenuItems = styled.div`
     justify-content: space-between;
     flex-direction: column;
      a {
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
         font-family: "Work Sans";
         font-size: 24px;
         color: white;
@@ -71,6 +72,7 @@ const Social = styled.div`
      justify-content: center;
      margin-bottom: 50px;
      a {
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
         padding: 10px;
      }
 `;
