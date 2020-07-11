@@ -61,8 +61,8 @@ const Footer = () => {
   return (
     <StyledFooter>
       <Social>
-        <a href="https://www.instagram.com/monica_loddo_ml/" target="_blank"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
-        <a href="https://www.facebook.com/monica.loddo.5" target="_blank"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
+        <a href="https://www.instagram.com/monica_loddo_ml/" rel="noreferrer" target="_blank"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
+        <a href="https://www.facebook.com/monica.loddo.5" rel="noreferrer" target="_blank"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
       </Social>
       <Menu>
         <Link to="/projects">Projects</Link>

@@ -115,7 +115,7 @@ const IndexPage = ({ data }) => {
             <Overlay>
                 <img src={logo} alt="Monica Loddo Logo" />
             </Overlay>
-            <iframe title="intro" src={`https://player.vimeo.com/video/${vimeo}?background=1&autoplay=1&loop=1&byline=0&title=0`}
+            <iframe allow="autoplay;" title="intro" src={`https://player.vimeo.com/video/${vimeo}?background=1&autoplay=1&loop=1&byline=0&title=0`}
                 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </VimeoWrapper>
 
