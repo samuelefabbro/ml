@@ -105,12 +105,12 @@ const Contact = ({ data }) => {
                     {document.contact.text}
                 </Title>
                 <Description>
-                {htmlToReactParser.parse(document.paragraph.html)}
+                  {htmlToReactParser.parse(document.paragraph.html)}
                 {htmlToReactParser.parse(document.email.html)}
                 {htmlToReactParser.parse(document.phone.html)}
                 </Description>
                 <FooterWhite />
-                </Header>
+              </Header>
 
 
         </Layout>
