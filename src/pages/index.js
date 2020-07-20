@@ -16,7 +16,7 @@ font-family: "Work Sans", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 17px;
+  padding-top: 40px;
   @media (max-width: 768px) {
     height: 190px;
     padding-top: 32px;
@@ -40,11 +40,11 @@ font-family: "Work Sans", sans-serif;
     }
   }
   img {
-    height: 130px;
+    width: 72px;
     margin: 0;
     padding-bottom: 8px;
     @media (max-width: 768px) {
-      height: 82px;
+      width: 60px;
     }
   }
   a {

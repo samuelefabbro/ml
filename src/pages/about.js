@@ -13,13 +13,10 @@ const AboutImg = styled.img`
     max-width: 600px;
 `;
 
+
+
 const Header = styled.section`
-    height: 100vh;
-    padding-top: 100px;
-    @media (max-width: 840px) {
-      height: 100%;
-      padding-top: 50px;
-    }
+    padding-top: 50px;
 `;
 
 const Logo = styled.div`
@@ -30,7 +27,7 @@ const Logo = styled.div`
     }
     @media (max-width: 840px) {
       width: 60px;
-      margin: 0 auto 36px auto;
+      margin: 0 auto;
       img {
         width: 60px;
       }
@@ -38,100 +35,72 @@ const Logo = styled.div`
 `;
 
 const Title = styled.h1`
-    font-size: 32px;
+    font-size: 26px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
-    margin: 105px auto 150px auto;
+    margin: 46px auto 52px auto;
     @media (max-width: 840px) {
-      margin: 58px auto 75px auto;
+      margin: 30px auto 40px auto;
       font-size: 24px;
     }
 `;
 
-const Description = styled.div`
-    font-family: "Work Sans";
-    font-size: 24px;
-    max-width: 900px;
-    line-height: 36px;
-    margin: 0 auto;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin-bottom: 60px;
-    @media (max-width: 840px) {
-      max-width: 700px;
-      margin-bottom: 100px;
-      font-size: 18px;
-      line-height: 25px;
-    }
-    @media (max-width: 500px) {
-      margin-bottom: 40px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-`;
 
 const MasonryWrapper = styled.div`
-    padding: 40px 40px 0 40px;
+    padding: 0 40px;
     max-width: 1920px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 40px;
+    @media (max-width: 840px) {
+      margin-bottom: 30px;
+    }
     @media (max-width: 500px) {
-      padding: 10px 18px;
+      padding: 0 18px;
+      margin-bottom: 20px;
     }
 `;
 
 const Masonry = styled.div`
-    columns: 3;
-    column-gap: 38px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 12px 20px;
+
     @media (max-width: 840px) {
-      columns: 2;
+      grid-template-columns: 1fr 1fr 1fr;
+
     }
     @media (max-width: 500px) {
-      columns: 2;
-      column-gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 7px 15px;
+
     }
 `;
 
 const MasonryItem = styled.div`
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 30px;
     width: 100%;
 
     img {
         width: 100%;
     }
 
-    @media (max-width: 840px) {
-      margin-bottom: 30px;
-    }
-
-    @media (max-width: 500px) {
-      margin-bottom: 6px;
-    }
 
 `;
 
 const ParagraphContainer = styled.div`
     font-family: "Work Sans";
-    font-size: 22px;
+    font-size: 16px;
     max-width: 900px;
-    line-height: 33px;
+    line-height: 22px;
+    text-align: center;
     margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
     margin-bottom: 40px;
     @media (max-width: 840px) {
-      margin-bottom: 20px;
-      font-size: 16px;
-      line-height: 22px;
-    }
-    @media (max-width: 840px) {
       max-width: 700px;
       margin-bottom: 20px;
-      font-size: 18px;
-      line-height: 25px;
     }
     @media (max-width: 500px) {
       padding-left: 18px;
@@ -143,7 +112,6 @@ const About = ({ data }) => {
     const logo = data.allPrismicAbout.edges[0].node.data.logo.url
     const logoAlt = data.allPrismicAbout.edges[0].node.data.logo.alt
     const title = data.allPrismicAbout.edges[0].node.data.page_title.text
-    const description = data.allPrismicAbout.edges[0].node.data.description.html
     const prismicContent = data.allPrismicAbout.edges[0]
     if (!prismicContent) return null
 
@@ -167,7 +135,7 @@ const About = ({ data }) => {
         // Image Gallery Slice
         if (slice_type === 'gallery') {
             return (
-                <MasonryWrapper>
+                <MasonryWrapper key={index}>
                     <Masonry key={index}>
                         {slice.items.map((item, i) => (
                             <MasonryItem key={i}>
@@ -194,9 +162,6 @@ const About = ({ data }) => {
                 <Title>
                     {title}
                 </Title>
-                <Description>
-                    {htmlToReactParser.parse(description)}
-                </Description>
             </Header>
 
             {content}
@@ -231,9 +196,6 @@ export const query = graphql`
                   }
                 }
               }
-            }
-            description {
-              html
             }
             logo {
               alt

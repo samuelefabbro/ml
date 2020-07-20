@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
   margin: 0 auto;
   padding: 50px;
   @media (max-width: 768px) {
-    padding: 25px;
+    padding: 0 25px 25px 25px;
   }
 `;
 

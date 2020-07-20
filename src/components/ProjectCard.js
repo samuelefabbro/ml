@@ -31,7 +31,7 @@ const Year = styled.div`
 `;
 
 const Title = styled.div`
-    font-size: 30px;
+    font-size: 22px;
     line-height: 1.2em;
     font-family: "Work Sans";
     font-weight: 600;

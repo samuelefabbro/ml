@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import styled,{ createGlobalStyle } from "styled-components"
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import logoWhite from "../images/MonicaLoddo-logo-white.svg"
 import Facebook from "../images/facebook-icon-white.svg"
 import Instagram from "../images/instagram-icon-white.svg"
 
@@ -35,26 +34,16 @@ const StyledNav = styled.nav`
 
 const StyledDiv = styled.div`
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
+        display: flex;
+    justify-content: center;
 
 `;
 
-const Logo = styled.div`
-
-     margin-top 100px;
-     img {
-        width: 60px;
-     }
-
-`;
 
 const MenuItems = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
      a {
         -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
@@ -64,13 +53,27 @@ const MenuItems = styled.div`
         padding-top: 13px;
         padding-bottom: 13px;
         text-decoration: none;
+        @media (max-width: 768px) {
+            font-size: 20px;
+            padding-top: 9px;
+        padding-bottom: 9px;
+        }
      }
 `;
 
 const Social = styled.div`
      display: flex;
      justify-content: center;
-     margin-bottom: 50px;
+     position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+        @media (max-width: 768px) {
+            width: 30px;
+        }
+
+    }
      a {
         -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
         padding: 10px;
@@ -165,19 +168,19 @@ const Nav = ({ menuTheme }) => {
             <GlobalStyle />
             <StyledNav showNav={menu}>
                 <StyledDiv>
-                    <Logo>
-                        <Link to="/"><img src={logoWhite} alt="Monica Loddo Logo"/></Link>
-                    </Logo>
                     <MenuItems>
+                        <Link to="/">Home</Link>
                         <Link to="/projects">Projects</Link>
                         <Link to="/about">About</Link>
                         <Link to="/contact">Contact</Link>
                     </MenuItems>
+
+                </StyledDiv>
                     <Social>
                         <a href="https://www.instagram.com/monica_loddo_ml/" rel="noreferrer" target="_blank"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
                         <a href="https://www.facebook.com/monica.loddo.5" rel="noreferrer" target="_blank"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
                     </Social>
-                </StyledDiv>
+
 
             </StyledNav>
 

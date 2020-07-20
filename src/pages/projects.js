@@ -9,13 +9,7 @@ import Footer from "../components/Footer"
 
 
 const Header = styled.section`
-    padding-top: 100px;
-    padding-bottom: 40px;
-    height: 70vh;
-    @media (max-width: 840px) {
-      height: 45vh;
-      padding-top: 50px;
-    }
+    padding-top: 50px;
 `;
 
 const Logo = styled.div`
@@ -26,7 +20,7 @@ const Logo = styled.div`
     }
     @media (max-width: 840px) {
       width: 60px;
-      margin: 0 auto 36px auto;
+      margin: 0 auto;
       img {
         width: 60px;
       }
@@ -34,13 +28,13 @@ const Logo = styled.div`
 `;
 
 const Title = styled.h1`
-    font-size: 32px;
+    font-size: 26px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
-    margin: 105px auto 155px auto;
+    margin: 46px auto 52px auto;
     @media (max-width: 840px) {
-      margin: 68px auto 90px auto;
+      margin: 30px auto 40px auto;
       font-size: 24px;
     }
 `;

@@ -1,21 +1,20 @@
 import { Parser } from 'html-to-react'
 import React from "react"
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from "styled-components"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import FooterWhite from "../components/FooterWhite"
 
-
-const Header = styled.section`
-background: #262626;
+const Body = styled.section `{
+background-color: #262626;
 height: 100vh;
-    padding-top: 100px;
-    @media (max-width: 840px) {
+}`;
 
-      padding-top: 50px;
-    }
-`;
+const Header = styled.section`{
+  padding-top: 50px;
+}`;
+
 
 const Logo = styled.div`
     width: 72px;
@@ -34,13 +33,13 @@ const Logo = styled.div`
 
 const Title = styled.h1`
     color: #ffffff;
-    font-size: 32px;
+    font-size: 26px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
-    margin: 105px auto 50px auto;
+    margin: 46px auto 52px auto;
     @media (max-width: 840px) {
-      margin: 58px auto 75px auto;
+      margin: 30px auto 40px auto;
       font-size: 24px;
     }
 `;
@@ -49,7 +48,7 @@ const Description = styled.div`
     font-family: "Work Sans";
     text-align: center;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 20px;
     max-width: 900px;
     line-height: 26px;
     margin: 0 auto;
@@ -59,30 +58,41 @@ const Description = styled.div`
     @media (max-width: 840px) {
       max-width: 700px;
       margin-bottom: 40px;
-      font-size: 18px;
-      line-height: 25px;
+      font-size: 16px;
+      line-height: 22px;
     }
     @media (max-width: 500px) {
-
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
     a {
       color: #ffffff;
       text-decoration: none;
     }
     p {
-      line-height: 26px;
+      line-height: 22px;
+      margin-bottom: 28px;
+      @media (max-width: 500px) {
       margin-bottom: 20px;
     }
+    }
     h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
+      font-size: 22px;
+      margin-bottom: 10px;
       @media (max-width: 500px) {
-        font-size: 22px;
-        margin-bottom: 8px;
+        font-size: 16px;
+        margin-bottom: 10px;
       }
     }
+`;
+
+const Address = styled.p `
+  margin-top: 26px;
+  font-size: 14px;
+  line-height: 22px;
+  @media (max-width: 500px) {
+        margin-top: 16px;
+      }
 `;
 
 
@@ -96,10 +106,10 @@ const Contact = ({ data }) => {
 
     return (
         <Layout menuTheme="light">
-
+          <Body>
               <Header>
                 <SEO title="Monica Loddo | Architect and Interior Designer | Contact page" />
-                <Logo><img src={document.logo_white.url} alt="" /></Logo>
+                <Logo><Link to="/"><img src={document.logo_white.url} alt={document.logo_white.alt} /></Link></Logo>
                 
                 <Title>
                     {document.contact.text}
@@ -108,10 +118,13 @@ const Contact = ({ data }) => {
                   {htmlToReactParser.parse(document.paragraph.html)}
                 {htmlToReactParser.parse(document.email.html)}
                 {htmlToReactParser.parse(document.phone.html)}
+                  <Address>
+                {htmlToReactParser.parse(document.address.html)}
+                </Address>
                 </Description>
                 <FooterWhite />
               </Header>
-
+          </Body>
 
         </Layout>
     )
@@ -135,6 +148,9 @@ query {
         html
       }
       phone {
+        html
+      }
+      address {
         html
       }
     }
