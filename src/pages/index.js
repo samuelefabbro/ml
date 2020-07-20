@@ -5,6 +5,8 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import logo from "../images/logo-overlay.svg"
 import logocircle from "../images/MonicaLoddo-logo-circle.svg"
+import Footer from "../components/Footer"
+
 
 const LogoHome = styled.div`
 font-family: "Work Sans", sans-serif;
@@ -55,9 +57,9 @@ font-family: "Work Sans", sans-serif;
 
 const VimeoWrapper = styled.div`
  {
-    position: fixed;
+    /* position: fixed;
     top: 100px;
-    left: 0;
+    left: 0; */
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -68,14 +70,14 @@ const VimeoWrapper = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     iframe {
-        width: 100vw;
+        width: 100%;
         height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
         min-height: 100vh;
         min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
-        position: absolute;
+        /* position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
      }
  }
 `;
@@ -101,7 +103,7 @@ const IndexPage = ({ data }) => {
     const document = data.prismicHomepage.data
     if (!document) return null
 
-    const vimeo = document.video.text
+    const youtube = document.video.text
 
   return (
     <Layout>
@@ -115,9 +117,11 @@ const IndexPage = ({ data }) => {
             <Overlay>
                 <img src={logo} alt="Monica Loddo Logo" />
             </Overlay>
-            <iframe allow="autoplay;" title="intro" src={`https://player.vimeo.com/video/${vimeo}?background=1&autoplay=1&loop=1&byline=0&title=0`}
-                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe title="intro" src={`https://www.youtube-nocookie.com/embed/${youtube}?rel=0&modestbranding=1&autohide=1&disablekb=1&mute=1&showinfo=0&loop=1&playlist=${youtube}&controls=0&autoplay=1`} frameborder="0" allow="autoplay"></iframe>
+
         </VimeoWrapper>
+
+        <Footer />
 
 
 
