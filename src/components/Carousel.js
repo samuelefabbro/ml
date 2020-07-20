@@ -1,3 +1,5 @@
+import React from "react"
+
 const imgUrls = [
 	"https://cmeimg-a.akamaihd.net/640/clsd/getty/c64f76dc20c246ca88ee180fe4b4b781", 
 	"https://lh3.googleusercontent.com/oxPeODS2m6rYIVbhcQChRtOWEYeGDwbeeeB1cDU2o_WYAVPU61VIgx-_6BAh5gSL8Sw=h900",
@@ -69,7 +71,9 @@ const ImageSlide = ({ url }) => {
 	);
 }
 
-ReactDOM.render(
-  <Carousel />,
-  document.getElementById('container')
-);
+export default Carousel
+
+// ReactDOM.render(
+// 	<Carousel />,
+// 	document.getElementById('container')
+//   );

@@ -6,6 +6,7 @@ import logo from "../images/logo-black.svg"
 import next from "../images/arrow-next.svg"
 import prev from "../images/arrow-prev.svg"
 import Footer from "../components/Footer"
+import Carousel from "../components/Carousel"
 
 import { Parser } from 'html-to-react'
 
@@ -291,6 +292,8 @@ const projectTemplate = ({ data }) => {
 
         if (slice_type === 'PrismicProjectBodyImageGallery') {
             return (
+                <>
+                <Carousel />
                 <Gallery key={index}>
                     {slice.items.map((item, i) => (
                         <GalleryImg
@@ -300,6 +303,7 @@ const projectTemplate = ({ data }) => {
                         />
                     ))}
                 </Gallery>
+                </>
             )
         }
 
