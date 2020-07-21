@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import Layout from "../components/Layout"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
@@ -159,23 +159,21 @@ const TwoImages = styled.div`
 `;
 
 const Gallery = styled.div`
-    max-width: 980px;
-    margin: 40px auto 40px auto;
-    padding-left: 60px;
-    padding-right: 60px;
-    @media(max-width: 768px) {
-      padding-left: 60px;
-      padding-right: 60px;
-  }
-    @media(max-width: 500px) {
-        padding: 10px 15px 10px 15px;
-    }
-
-`;
-
-const GalleryImg = styled.img`
     width: 100%;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    @media(max-width: 768px) {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+
+
 `;
+
 
 const PrevLink = styled.div`
     display: flex;
@@ -291,20 +289,11 @@ const projectTemplate = ({ data }) => {
 
         if (slice_type === 'PrismicProjectBodyImageGallery') {
           return (
-              <Fragment key={index}>
-                {slice.items.length && (
+                <Gallery key={index}>
+                  {slice.items.length && (
                   <Carousel images={slice.items}/>
-                )}
-                <Gallery>
-                    {slice.items.map((item, i) => (
-                        <GalleryImg
-                            key={i}
-                            src={item.gallery_image.url}
-                            alt={item.gallery_image.alt}
-                        />
-                    ))}
+                  )}
                 </Gallery>
-              </Fragment>
           )
         }
 
