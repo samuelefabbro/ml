@@ -1,26 +1,41 @@
-html, body, #container, .carousel {
+@import "./../styles/lib";
+
+.Carousel {
 	height:100%;
 	margin: 0;
 	width: 100%;
-}
+	min-height: 600px;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-.image-slide {
-	height: 100%;
-	width: 100%;
-}
+	.image-slide {
+		height: 100%;
+		width: 100%;
+		background-repeat: no-repeat;
+		min-height: 400px;
+		position: absolute;
+	}
 
-.slide-arrow {
-	color: #FFFFFF;
-	cursor: pointer;
-	font-size: 2rem;
-	position: fixed;
-	top: 50%;
-}
+	.slide-arrow {
+		color: #FFFFFF;
+		cursor: pointer;
+		font-size: 2rem;
+		padding: 0.7rem;
+		position: relative;
+		z-index: 1;
 
-.slide-arrow.right {
-	right: 1rem;
-}
+		&:hover {
+			opacity: 0.5;
+		}
+	}
 
-.slide-arrow.left {
-	left: 1rem;
+	.slide-arrow.right {
+		margin-right: 1rem;
+	}
+
+	.slide-arrow.left {
+		margin-left: 1rem;
+	}
 }

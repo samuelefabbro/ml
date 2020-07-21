@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import Layout from "../components/Layout"
 import { Link, graphql } from 'gatsby'
 import styled from "styled-components"
@@ -7,7 +7,6 @@ import next from "../images/arrow-next.svg"
 import prev from "../images/arrow-prev.svg"
 import Footer from "../components/Footer"
 import Carousel from "../components/Carousel"
-
 import { Parser } from 'html-to-react'
 
 const htmlToReactParser = new Parser()
@@ -291,10 +290,10 @@ const projectTemplate = ({ data }) => {
         }
 
         if (slice_type === 'PrismicProjectBodyImageGallery') {
-            return (
-                <>
-                <Carousel />
-                <Gallery key={index}>
+          return (
+              <Fragment key={index}>
+                <Carousel/>
+                <Gallery>
                     {slice.items.map((item, i) => (
                         <GalleryImg
                             key={i}
@@ -303,38 +302,38 @@ const projectTemplate = ({ data }) => {
                         />
                     ))}
                 </Gallery>
-                </>
-            )
+              </Fragment>
+          )
         }
 
-        
+
         if (slice_type === "PrismicProjectBodyNext") {
           let nextLink = slice.primary.prev_project.uid
-        
+
           return (
               <NextLink key={index}>
-              
+
                 <Link to={`/projects/${nextLink}`}>Next Project</Link>
                 <Link to={`/projects/${nextLink}`}><img src={next} alt="prev"/></Link>
-                
+
               </NextLink>
           )
       }
       if (slice_type === "PrismicProjectBodyPrevious") {
         let prevLink = slice.primary.prev_project.uid
-      
+
         return (
             <PrevLink key={index}>
-              
+
               <Link to={`/projects/${prevLink}`}>
               <img src={prev} alt="prev"/></Link>
               <Link to={`/projects/${prevLink}`}>
                 Prev Project</Link>
-              
+
             </PrevLink>
         )
     }
-        
+
 
         return null
     })
@@ -344,12 +343,11 @@ const projectTemplate = ({ data }) => {
         <Layout className="Project" noTopPadding>
 
                 <Header>
-                <Logo>
-                <Link to="/"><img src={logo} alt="Monica Loddo Logo"/></Link>
-                </Logo>
+                  <Logo>
+                    <Link to="/"><img src={logo} alt="Monica Loddo Logo"/></Link>
+                  </Logo>
                   <Wrapper>
-       
-                <Year>
+                    <Year>
                         {htmlToReactParser.parse(project.year.text)}
                     </Year>
                     <Title>
