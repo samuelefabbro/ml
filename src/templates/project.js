@@ -14,25 +14,18 @@ const htmlToReactParser = new Parser()
 
 
 const Header = styled.section`
-    width: 100%;
-    padding-top: 100px;
-    @media (max-width: 840px) {
-      height: 55vh;
-      padding-top: 50px;
-    }
-    @media(max-width: 500px) {
-      height: 100%;
-  }
+    padding-top: 50px;
 `;
 
 const Wrapper = styled.div`
-    padding-top: 90px;
-    padding-bottom: 110px;
+    padding-top: 28px;
+    padding-bottom: 40px;
     @media(max-width: 500px) {
-      padding-top: 50px;
-      padding-bottom: 80px;
+      padding-top: 16px;
+      padding-bottom: 30px;
   }
 `;
+
 
 const Logo = styled.div`
     width: 72px;
@@ -42,29 +35,31 @@ const Logo = styled.div`
     }
     @media (max-width: 840px) {
       width: 60px;
-      margin: 0 auto 36px auto;
+      margin: 0 auto;
       img {
         width: 60px;
       }
     }
 `;
 
-
 const Year = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
+    @media(max-width: 500px) {
+      font-size: 10px;
+  }
 `;
 
 const Title = styled.div`
-    font-size: 32px;
+    font-size: 26px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
     line-height: 1.4em;
     @media(max-width: 500px) {
-      font-size: 28px;
+      font-size: 20px;
       line-height: 1.2em;
   }
 `;
@@ -74,24 +69,31 @@ const Location = styled.div`
     font-family: "Work Sans";
     font-weight: 400;
     text-align: center;
+    @media(max-width: 500px) {
+      font-size: 10px;
+  }
 `;
 
 
 const PostContent = styled.div`
+ 
+    font-size: 16px;
     max-width: 980px;
-    margin: 60px auto 60px auto;
-    padding-left: 60px;
-    padding-right: 60px;
-    font-size: 22px;
-    line-height: 34px;
+    line-height: 22px;
+    text-align: center;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 100px;
+    margin-top: 100px;
     a {
       color: #262626;
     }
     @media(max-width: 768px) {
       font-size: 16px;
-      line-height: 24px;
-      margin-top: 25px;
-      margin-bottom: 25px;
+      line-height: 22px;
+      margin-top: 60px;
+      margin-bottom: 60px;
       padding-left: 60px;
       padding-right: 60px;
     }
@@ -119,18 +121,20 @@ const BigImage = styled.div`
 
 const XlImage = styled.div`
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     padding-left: 40px;
     padding-right: 40px;
     @media(max-width: 768px) {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 4px;
+      margin-bottom: 0px;
       padding-left: 15px;
       padding-right: 15px;
   }
     p {
-      padding-top: 10px;
+      margin: 0 auto;
+      max-width: 960px;
+      padding-top: 0px;
       font-size: 16px;
       text-align: center;
       @media(max-width: 500px) {
@@ -140,17 +144,18 @@ const XlImage = styled.div`
 `;
 
 const TwoImages = styled.div`
-    padding: 40px 40px 60px 40px;
+    padding: 6px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 43px;
+    grid-gap: 12px;
     @media(max-width: 768px) {
-      grid-gap: 15px;
-      padding: 20px 15px 20px 15px;
+      grid-gap: 8px;
+      padding: 4px 15px;
   }
     @media(max-width: 500px) {
         grid-template-columns: 1fr;
-        padding: 10px 15px 10px 15px;
+        grid-gap: 10px;
+        padding: 5px 15px;
     }
 
     img {
@@ -160,13 +165,13 @@ const TwoImages = styled.div`
 
 const Gallery = styled.div`
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    margin-top: 6px;
+    margin-bottom: 6px;
     padding-left: 40px;
     padding-right: 40px;
     @media(max-width: 768px) {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 4px;
+      margin-bottom: 4px;
       padding-left: 15px;
       padding-right: 15px;
   }
