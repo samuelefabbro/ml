@@ -292,7 +292,9 @@ const projectTemplate = ({ data }) => {
         if (slice_type === 'PrismicProjectBodyImageGallery') {
           return (
               <Fragment key={index}>
-                <Carousel/>
+                {slice.items.length && (
+                  <Carousel images={slice.items}/>
+                )}
                 <Gallery>
                     {slice.items.map((item, i) => (
                         <GalleryImg

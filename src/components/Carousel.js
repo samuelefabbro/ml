@@ -8,7 +8,7 @@ const imgUrls = [
 ];
 
 // @Sam, now you can replace these urls with src's from Prismic. Pass the urls
-// down from project.js into this component using Props.
+// down from project.js into this component using Props. I included a working example.
 
 class Carousel extends React.Component {
 	constructor (props) {
@@ -23,7 +23,7 @@ class Carousel extends React.Component {
 	}
 
 	previousSlide () {
-		const lastIndex = imgUrls.length - 1;
+		const lastIndex = this.props.images.length - 1;
 		const { currentImageIndex } = this.state;
 		const shouldResetIndex = currentImageIndex === 0;
 		const index =  shouldResetIndex ? lastIndex : currentImageIndex - 1;
@@ -34,7 +34,7 @@ class Carousel extends React.Component {
 	}
 
 	nextSlide () {
-		const lastIndex = imgUrls.length - 1;
+		const lastIndex = this.props.images.length - 1;
 		const { currentImageIndex } = this.state;
 		const shouldResetIndex = currentImageIndex === lastIndex;
 		const index =  shouldResetIndex ? 0 : currentImageIndex + 1;
@@ -60,8 +60,8 @@ class Carousel extends React.Component {
 					clickFunction={ this.nextSlide }
 					glyph="&#9654;"
 				/>
-				{/* <ImageSlide url={ images[this.state.currentImageIndex].gallery_image.url } /> */}
-				<ImageSlide url={ imgUrls[this.state.currentImageIndex] } />
+				<ImageSlide url={ images[this.state.currentImageIndex].gallery_image.url } />
+				{/* <ImageSlide url={ imgUrls[this.state.currentImageIndex] } /> */}
 			</div>
 		);
 	}
