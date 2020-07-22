@@ -52,7 +52,7 @@ const MasonryWrapper = styled.div`
     max-width: 1920px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     @media (max-width: 840px) {
       margin-bottom: 30px;
     }
@@ -97,7 +97,7 @@ const ParagraphContainer = styled.div`
     margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     @media (max-width: 840px) {
       max-width: 700px;
       margin-bottom: 20px;

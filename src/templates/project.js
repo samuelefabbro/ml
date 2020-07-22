@@ -105,15 +105,15 @@ const PostContent = styled.div`
 `
 const BigImage = styled.div`
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    margin-top: 6px;
+    margin-bottom: -1px;
     @media(max-width: 768px) {
       margin-top: 10px;
       margin-bottom: 10px;
   }
     @media(max-width: 500px) {
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 4px;
+      margin-bottom: 0px;
       padding-left: 15px;
       padding-right: 15px;
     }
@@ -121,8 +121,8 @@ const BigImage = styled.div`
 
 const XlImage = styled.div`
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 0px;
+    margin-top: 6px;
+    margin-bottom: -1px;
     padding-left: 40px;
     padding-right: 40px;
     @media(max-width: 768px) {
@@ -144,10 +144,10 @@ const XlImage = styled.div`
 `;
 
 const TwoImages = styled.div`
-    padding: 6px 40px;
+    padding: 6px 40px 7px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 12px;
+    grid-gap: 13px;
     @media(max-width: 768px) {
       grid-gap: 8px;
       padding: 4px 15px;
@@ -170,7 +170,7 @@ const Gallery = styled.div`
     padding-left: 40px;
     padding-right: 40px;
     @media(max-width: 768px) {
-      margin-top: 4px;
+      margin-top: 2px;
       margin-bottom: 4px;
       padding-left: 15px;
       padding-right: 15px;
