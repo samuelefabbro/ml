@@ -76,7 +76,7 @@ const Location = styled.div`
 
 
 const PostContent = styled.div`
- 
+
     font-size: 16px;
     max-width: 980px;
     line-height: 22px;
@@ -295,13 +295,12 @@ const projectTemplate = ({ data }) => {
         if (slice_type === 'PrismicProjectBodyImageGallery') {
           return (
                 <Gallery key={index}>
-                  {slice.items.length && (
-                  <Carousel images={slice.items}/>
+                  {slice.items.length > 0 && (
+                    <Carousel images={slice.items}/>
                   )}
                 </Gallery>
           )
         }
-
 
         if (slice_type === "PrismicProjectBodyNext") {
           let nextLink = slice.primary.prev_project.uid
