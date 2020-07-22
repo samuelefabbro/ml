@@ -25,9 +25,16 @@
 		padding: 0.7rem;
 		position: relative;
 		z-index: 1;
+		background: none;
+		border: none;
 
 		&:hover {
 			opacity: 0.5;
+		}
+
+		&:visited {
+			border: none;
+			box-shadow: none;
 		}
 	}
 

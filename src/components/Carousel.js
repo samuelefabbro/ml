@@ -63,11 +63,11 @@ class Carousel extends React.Component {
 }
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
-	<div
+	<button
 		className={ `slide-arrow ${direction}` }
 		onClick={ clickFunction }>
 		{ glyph }
-	</div>
+	</button>
 );
 
 const ImageSlide = ({ url }) => {
