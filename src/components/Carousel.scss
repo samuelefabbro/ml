@@ -26,8 +26,17 @@
 		height: 100%;
 		width: 100%;
 		background-repeat: no-repeat;
-		min-height: 800px;
+		min-height: 720px;
 		position: absolute;
+		@media (max-height: 860px) {
+			min-height: 600px;
+		}
+		@media (max-height: 722px) {
+			min-height: 500px;
+		}
+		@media (max-height: 600px) {
+			min-height: 400px;
+		}
 		@media (max-width: 1280px) {
 			min-height: 600px;
 		  }
