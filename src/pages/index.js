@@ -3,8 +3,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import logo from "../images/logo-overlay.svg"
-import logocircle from "../images/MonicaLoddo-logo-circle.svg"
 import Footer from "../components/Footer"
 
 
@@ -55,29 +53,8 @@ font-family: "Work Sans", sans-serif;
   }
 `;
 
-const VimeoWrapper = styled.div`
-    /* position: fixed;
-    top: 100px;
-    left: 0; */
+const Video = styled.div`
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-    // background-image: url(${logocircle});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    iframe {
-        width: 100%;
-        height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
-        min-height: 100vh;
-        min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
-        /* position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); */
-     }
 `;
 
 const Overlay = styled.div`
@@ -86,13 +63,19 @@ const Overlay = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    @media (max-width: 768px) {
+            transform: translate(-50%, -35%);
+          }
     img {
         @media (max-width: 768px) {
-            height: 153px;
+            height: 130px;
+          }
+        @media (max-width: 500px) {
+            height: 100px;
+
           }
     }
 `;
-
 
 
 
@@ -100,28 +83,26 @@ const IndexPage = ({ data }) => {
     const document = data.prismicHomepage.data
     if (!document) return null
 
-    const youtube = document.video.text
 
   return (
     <Layout>
         <LogoHome>
-            <img src={document.logo_home.url} alt="" />
+            <img src={document.logo_home.url} alt={document.logo_home.alt} />
             <h1>{document.name.text}</h1>
             <p>{document.tagline.text}</p>
         </LogoHome>
 
-        <VimeoWrapper>
+        <Video>
+            
             <Overlay>
-                <img src={logo} alt="Monica Loddo Logo" />
+              <img src={document.overlay.url} alt={document.overlay.alt} />
             </Overlay>
-            <iframe title="intro" src={`https://www.youtube-nocookie.com/embed/${youtube}?rel=0&modestbranding=1&autohide=1&disablekb=1&mute=1&showinfo=0&loop=1&playlist=${youtube}&controls=0&autoplay=1`} frameborder="0" allow="autoplay"></iframe>
-
-        </VimeoWrapper>
+            <video loop autoPlay muted width="100%">
+                <source src={document.video1.url} type="video/mp4" />
+            </video>
+        </Video>
 
         <Footer />
-
-
-
     </Layout>
   )
 }
@@ -139,12 +120,14 @@ query {
       tagline {
         text
       }
-      video {
-        text
+      video1 {
+        url
+      }
+      overlay {
+        url
       }
     }
   }
 }
-
 `
 export default IndexPage
