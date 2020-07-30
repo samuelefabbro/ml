@@ -1,56 +1,56 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { Link, graphql } from 'gatsby'
+import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import logo from "../images/logo-black.svg"
 import next from "../images/arrow-next.svg"
 import prev from "../images/arrow-prev.svg"
 import Footer from "../components/Footer"
 import Carousel from "../components/Carousel"
-import { Parser } from 'html-to-react'
+import { Parser } from "html-to-react"
 
 const htmlToReactParser = new Parser()
 
-
-
 const Header = styled.section`
     padding-top: 50px;
-`;
+    @media (max-width: 840px) {
+        padding-top: 30px;
+    }
+`
 
 const Wrapper = styled.div`
     padding-top: 28px;
     padding-bottom: 40px;
-    @media(max-width: 500px) {
-      padding-top: 16px;
-      padding-bottom: 30px;
-  }
-`;
-
+    @media (max-width: 840px) {
+        padding-top: 12px;
+        padding-bottom: 16px;
+    }
+`
 
 const Logo = styled.div`
     width: 72px;
     margin: 0 auto;
     img {
-      width: 72px;
+        width: 72px;
     }
     @media (max-width: 840px) {
-      width: 60px;
-      margin: 0 auto;
-      img {
-        width: 60px;
-      }
+        width: 40px;
+        margin: 0 auto;
+        img {
+            width: 40px;
+        }
     }
-`;
+`
 
 const Year = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
-    @media(max-width: 500px) {
-      font-size: 10px;
-  }
-`;
+    @media (max-width: 840px) {
+        font-size: 8px;
+    }
+`
 
 const Title = styled.div`
     font-size: 26px;
@@ -58,25 +58,23 @@ const Title = styled.div`
     font-weight: 600;
     text-align: center;
     line-height: 1.4em;
-    @media(max-width: 500px) {
-      font-size: 20px;
-      line-height: 1.2em;
-  }
-`;
+    @media (max-width: 840px) {
+        font-size: 16px;
+        line-height: 1.2em;
+    }
+`
 
 const Location = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 400;
     text-align: center;
-    @media(max-width: 500px) {
-      font-size: 10px;
-  }
-`;
-
+    @media (max-width: 840px) {
+        font-size: 8px;
+    }
+`
 
 const PostContent = styled.div`
-
     font-size: 16px;
     max-width: 980px;
     line-height: 22px;
@@ -87,37 +85,40 @@ const PostContent = styled.div`
     margin-bottom: 100px;
     margin-top: 100px;
     a {
-      color: #262626;
+        color: #262626;
     }
-    @media(max-width: 768px) {
-      font-size: 16px;
-      line-height: 22px;
-      margin-top: 60px;
-      margin-bottom: 60px;
-      padding-left: 60px;
-      padding-right: 60px;
+    @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
-    @media(max-width: 500px) {
-      font-size: 16px;
-      padding-left: 15px;
-      padding-right: 15px;
+    @media (max-width: 500px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 `
 const BigImage = styled.div`
     width: 100%;
     margin-top: 6px;
     margin-bottom: -1px;
-    @media(max-width: 768px) {
-      margin-top: 10px;
-      margin-bottom: 10px;
-  }
-    @media(max-width: 500px) {
-      margin-top: 4px;
-      margin-bottom: 0px;
-      padding-left: 15px;
-      padding-right: 15px;
+    @media (max-width: 768px) {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
-`;
+    @media (max-width: 500px) {
+        margin-top: 4px;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+`
 
 const XlImage = styled.div`
     width: 100%;
@@ -125,34 +126,34 @@ const XlImage = styled.div`
     margin-bottom: -1px;
     padding-left: 40px;
     padding-right: 40px;
-    @media(max-width: 768px) {
-      margin-top: 4px;
-      margin-bottom: 0px;
-      padding-left: 15px;
-      padding-right: 15px;
-  }
+    @media (max-width: 768px) {
+        margin-top: 4px;
+        margin-bottom: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     p {
-      margin: 0 auto;
-      max-width: 960px;
-      padding-top: 0px;
-      font-size: 16px;
-      text-align: center;
-      @media(max-width: 500px) {
-        font-size: 12px;
+        margin: 0 auto;
+        max-width: 960px;
+        padding-top: 0px;
+        font-size: 16px;
+        text-align: center;
+        @media (max-width: 500px) {
+            font-size: 12px;
+        }
     }
-    }
-`;
+`
 
 const TwoImages = styled.div`
     padding: 6px 40px 7px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 13px;
-    @media(max-width: 768px) {
-      grid-gap: 8px;
-      padding: 4px 15px;
-  }
-    @media(max-width: 500px) {
+    @media (max-width: 768px) {
+        grid-gap: 8px;
+        padding: 4px 15px;
+    }
+    @media (max-width: 500px) {
         grid-template-columns: 1fr;
         grid-gap: 10px;
         padding: 5px 15px;
@@ -161,7 +162,7 @@ const TwoImages = styled.div`
     img {
         width: 100%;
     }
-`;
+`
 
 const Gallery = styled.div`
     width: 100%;
@@ -169,16 +170,13 @@ const Gallery = styled.div`
     margin-bottom: 6px;
     padding-left: 40px;
     padding-right: 40px;
-    @media(max-width: 768px) {
-      margin-top: 2px;
-      margin-bottom: 4px;
-      padding-left: 15px;
-      padding-right: 15px;
-  }
-
-
-`;
-
+    @media (max-width: 768px) {
+        margin-top: 2px;
+        margin-bottom: 4px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+`
 
 const PrevLink = styled.div`
     display: flex;
@@ -188,24 +186,24 @@ const PrevLink = styled.div`
     margin-left: 40px;
     margin-top: 12px;
     img {
-      width: 27px;
-      margin-right: 12px;
-      margin-top: 3px;
-      @media(max-width: 500px) {
-        width: 20px;
-        margin-right: 6px;
+        width: 27px;
+        margin-right: 12px;
         margin-top: 3px;
+        @media (max-width: 500px) {
+            width: 16px;
+            margin-right: 6px;
+            margin-top: 3px;
+        }
     }
-  }
     a {
-      text-decoration: none;
-      color: #262626;
-      height: 26px;
+        text-decoration: none;
+        color: #262626;
+        height: 26px;
     }
-    @media(max-width: 500px) {
-      font-size: 16px;
-  }
-`;
+    @media (max-width: 500px) {
+        font-size: 13px;
+    }
+`
 
 const NextLink = styled.div`
     display: flex;
@@ -215,24 +213,24 @@ const NextLink = styled.div`
     margin-top: 12px;
     margin-right: 40px;
     img {
-      width: 27px;
-      margin-left: 12px;
-      margin-top: 3px;
-      @media(max-width: 500px) {
-        width: 20px;
-        margin-left: 6px;
+        width: 27px;
+        margin-left: 12px;
         margin-top: 3px;
-    }
+        @media (max-width: 500px) {
+            width: 16px;
+            margin-left: 6px;
+            margin-top: 3px;
+        }
     }
     a {
-      text-decoration: none;
-      color: #262626;
-      height: 26px;
+        text-decoration: none;
+        color: #262626;
+        height: 26px;
     }
-    @media(max-width: 500px) {
-      font-size: 16px;
-  }
-`;
+    @media (max-width: 500px) {
+        font-size: 13px;
+    }
+`
 
 const projectTemplate = ({ data }) => {
     //The data prop^ is injected by the graphQL query below
@@ -246,38 +244,32 @@ const projectTemplate = ({ data }) => {
         if (slice_type === "PrismicProjectBodyParagraph") {
             return (
                 <PostContent key={index}>
-
-                        {htmlToReactParser.parse(slice.primary.paragraph.html)}
-
+                    {htmlToReactParser.parse(slice.primary.paragraph.html)}
                 </PostContent>
             )
         }
 
         if (slice_type === "PrismicProjectBodyFullWidthImage") {
-          let img_src = slice.primary.big_image.url
-          let img_alt = slice.primary.big_image.alt
-          return (
-              <BigImage key={index}>
+            let img_src = slice.primary.big_image.url
+            let img_alt = slice.primary.big_image.alt
+            return (
+                <BigImage key={index}>
+                    <img src={img_src} alt={img_alt} />
+                </BigImage>
+            )
+        }
 
-                      <img src={img_src} alt={img_alt}/>
-
-              </BigImage>
-          )
-      }
-
-      if (slice_type === "PrismicProjectBodyImageWithCaption") {
-        let img_src = slice.primary.image.url
-        let img_alt = slice.primary.image.alt
-        let caption = slice.primary.caption.text
-        return (
-            <XlImage key={index}>
-
-                    <img src={img_src} alt={img_alt}/>
+        if (slice_type === "PrismicProjectBodyImageWithCaption") {
+            let img_src = slice.primary.image.url
+            let img_alt = slice.primary.image.alt
+            let caption = slice.primary.caption.text
+            return (
+                <XlImage key={index}>
+                    <img src={img_src} alt={img_alt} />
                     <p>{caption}</p>
-
-            </XlImage>
-        )
-    }
+                </XlImage>
+            )
+        }
 
         if (slice_type === "PrismicProjectBody2Images") {
             let img_1 = slice.primary.img_left.url
@@ -292,70 +284,60 @@ const projectTemplate = ({ data }) => {
             )
         }
 
-        if (slice_type === 'PrismicProjectBodyImageGallery') {
-          return (
+        if (slice_type === "PrismicProjectBodyImageGallery") {
+            return (
                 <Gallery key={index}>
-                  {slice.items.length > 0 && (
-                    <Carousel images={slice.items}/>
-                  )}
+                    {slice.items.length > 0 && (
+                        <Carousel images={slice.items} />
+                    )}
                 </Gallery>
-          )
+            )
         }
 
         if (slice_type === "PrismicProjectBodyNext") {
-          let nextLink = slice.primary.prev_project.uid
+            let nextLink = slice.primary.prev_project.uid
 
-          return (
-              <NextLink key={index}>
+            return (
+                <NextLink key={index}>
+                    <Link to={`/projects/${nextLink}`}>Next Project</Link>
+                    <Link to={`/projects/${nextLink}`}>
+                        <img src={next} alt="prev" />
+                    </Link>
+                </NextLink>
+            )
+        }
+        if (slice_type === "PrismicProjectBodyPrevious") {
+            let prevLink = slice.primary.prev_project.uid
 
-                <Link to={`/projects/${nextLink}`}>Next Project</Link>
-                <Link to={`/projects/${nextLink}`}><img src={next} alt="prev"/></Link>
-
-              </NextLink>
-          )
-      }
-      if (slice_type === "PrismicProjectBodyPrevious") {
-        let prevLink = slice.primary.prev_project.uid
-
-        return (
-            <PrevLink key={index}>
-
-              <Link to={`/projects/${prevLink}`}>
-              <img src={prev} alt="prev"/></Link>
-              <Link to={`/projects/${prevLink}`}>
-                Prev Project</Link>
-
-            </PrevLink>
-        )
-    }
-
+            return (
+                <PrevLink key={index}>
+                    <Link to={`/projects/${prevLink}`}>
+                        <img src={prev} alt="prev" />
+                    </Link>
+                    <Link to={`/projects/${prevLink}`}>Prev Project</Link>
+                </PrevLink>
+            )
+        }
 
         return null
     })
 
-
     return (
         <Layout className="Project" noTopPadding>
-
-                <Header>
-                  <Logo>
-                    <Link to="/"><img src={logo} alt="Monica Loddo Logo"/></Link>
-                  </Logo>
-                  <Wrapper>
-                    <Year>
-                        {htmlToReactParser.parse(project.year.text)}
-                    </Year>
-                    <Title>
-                        {htmlToReactParser.parse(project.title.text)}
-                    </Title>
+            <Header>
+                <Logo>
+                    <Link to="/">
+                        <img src={logo} alt="Monica Loddo Logo" />
+                    </Link>
+                </Logo>
+                <Wrapper>
+                    <Year>{htmlToReactParser.parse(project.year.text)}</Year>
+                    <Title>{htmlToReactParser.parse(project.title.text)}</Title>
                     <Location>
                         {htmlToReactParser.parse(project.location.text)}
                     </Location>
-                  </Wrapper>
-
-
+                </Wrapper>
             </Header>
-
 
             {bodyContent}
 
@@ -371,98 +353,94 @@ export default projectTemplate
 //     link: PropTypes.string,
 // };
 
-
-
-
 export const query = graphql`
-query PageQuery($uid: String) {
-    prismicProject(uid: {eq: $uid}) {
-        uid
-        data {
-          title {
-            text
-          }
-          location {
-            text
-          }
-          year {
-            text
-          }
-          body {
-        ... on PrismicProjectBodyParagraph {
-          id
-          primary {
-            paragraph {
-              html
+    query PageQuery($uid: String) {
+        prismicProject(uid: { eq: $uid }) {
+            uid
+            data {
+                title {
+                    text
+                }
+                location {
+                    text
+                }
+                year {
+                    text
+                }
+                body {
+                    ... on PrismicProjectBodyParagraph {
+                        id
+                        primary {
+                            paragraph {
+                                html
+                            }
+                        }
+                    }
+                    ... on PrismicProjectBodyFullWidthImage {
+                        id
+                        primary {
+                            big_image {
+                                alt
+                                url
+                            }
+                        }
+                    }
+                    ... on PrismicProjectBodyImageWithCaption {
+                        id
+                        primary {
+                            image {
+                                url
+                                alt
+                            }
+                            caption {
+                                text
+                            }
+                        }
+                    }
+                    ... on PrismicProjectBody2Images {
+                        id
+                        primary {
+                            img_left {
+                                alt
+                                url
+                            }
+                            img_right {
+                                alt
+                                url
+                            }
+                        }
+                    }
+                    ... on PrismicProjectBodyImageGallery {
+                        id
+                        slice_type
+                        items {
+                            gallery_image {
+                                alt
+                                url
+                            }
+                        }
+                    }
+                    ... on PrismicProjectBodyPrevious {
+                        id
+                        slice_type
+                        primary {
+                            prev_project {
+                                uid
+                            }
+                        }
+                        slice_type
+                    }
+                    ... on PrismicProjectBodyNext {
+                        id
+                        slice_type
+                        primary {
+                            prev_project {
+                                uid
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-        ... on PrismicProjectBodyFullWidthImage {
-          id
-          primary {
-            big_image {
-              alt
-              url
-            }
-          }
-        }
-        ... on PrismicProjectBodyImageWithCaption {
-          id
-          primary {
-            image {
-              url
-              alt
-            }
-            caption {
-              text
-            }
-          }
-        }
-        ... on PrismicProjectBody2Images {
-          id
-          primary {
-            img_left {
-              alt
-              url
-            }
-            img_right {
-              alt
-              url
-            }
-          }
-        }
-        ... on PrismicProjectBodyImageGallery {
-          id
-          slice_type
-          items {
-            gallery_image {
-              alt
-              url
-            }
-          }
-        }
-        ... on PrismicProjectBodyPrevious {
-          id
-          slice_type
-          primary {
-            prev_project {
-              uid
-            }
-          }
-          slice_type
-        }
-        ... on PrismicProjectBodyNext {
-          id
-          slice_type
-          primary {
-            prev_project {
-              uid
-            }
-          }
-        }
-      }
-
-        }
-  }
-}
+    }
 `

@@ -1,34 +1,39 @@
 import React from "react"
-import { Link } from 'gatsby'
+import { Link } from "gatsby"
 import styled from "styled-components"
-import PropTypes from 'prop-types'
-import { Parser } from 'html-to-react'
+import PropTypes from "prop-types"
+import { Parser } from "html-to-react"
 
 const htmlToReactParser = new Parser()
-
 
 const Card = styled.div`
     max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-`;
+`
 
 const Image = styled.div`
     max-width: 100%;
     width: 100%;
-`;
+`
 
 const Content = styled.div`
     text-align: center;
     padding: 10px 0 25px 0;
-`;
+    @media (max-width: 840px) {
+        padding: 10px 0 14px 0;
+    }
+`
 
 const Year = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 600;
-`;
+    @media (max-width: 840px) {
+        font-size: 8px;
+    }
+`
 
 const Title = styled.div`
     font-size: 22px;
@@ -36,19 +41,24 @@ const Title = styled.div`
     font-family: "Work Sans";
     font-weight: 600;
     margin: 0;
-`;
+    @media (max-width: 840px) {
+        font-size: 14px;
+    }
+`
 
 const Location = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 400;
-`;
+    @media (max-width: 840px) {
+        font-size: 8px;
+    }
+`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: #262626;
-`;
-
+`
 
 const ProjectCard = ({ data }) => {
     let title = data.project_title.text
@@ -60,29 +70,17 @@ const ProjectCard = ({ data }) => {
     let link = data.project.uid
 
     return (
-
-        <StyledLink
-            to={`/projects/${link}`}
-            className="Project"
-        >
-
+        <StyledLink to={`/projects/${link}`} className="Project">
             <Card>
                 <Image>
-                    <img src={image} alt={alt}/>
+                    <img src={image} alt={alt} />
                 </Image>
                 <Content>
-                    <Year>
-                        {htmlToReactParser.parse(year)}
-                    </Year>
-                    <Title>
-                        {htmlToReactParser.parse(title)}
-                    </Title>
-                    <Location>
-                        {htmlToReactParser.parse(location)}
-                    </Location>
+                    <Year>{htmlToReactParser.parse(year)}</Year>
+                    <Title>{htmlToReactParser.parse(title)}</Title>
+                    <Location>{htmlToReactParser.parse(location)}</Location>
                 </Content>
             </Card>
-
         </StyledLink>
     )
 }
@@ -92,4 +90,4 @@ export default ProjectCard
 ProjectCard.propTypes = {
     data: PropTypes.object,
     link: PropTypes.string,
-};
+}

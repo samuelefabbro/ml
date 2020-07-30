@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import styled,{ createGlobalStyle } from "styled-components"
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import styled, { createGlobalStyle } from "styled-components"
+import PropTypes from "prop-types"
+import { Link } from "gatsby"
 import Facebook from "../images/facebook-icon-white.svg"
 import Instagram from "../images/instagram-icon-white.svg"
 
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-`;
+`
 
 const StyledNav = styled.nav`
     position: fixed;
@@ -24,29 +24,28 @@ const StyledNav = styled.nav`
     height: 100vh;
     background: #262626;
     opacity: 0.9;
-    transform: ${({showNav})=> showNav ? 'translateX(50vw)' : 'translateX(100vw)'};
+    transform: ${({ showNav }) =>
+        showNav ? "translateX(50vw)" : "translateX(100vw)"};
     transition: transform 250ms ease-in-out;
     @media (max-width: 768px) {
         width: 100vw;
-        transform: ${({showNav})=> showNav ? 'translateX(0vw)' : 'translateX(100vw)'};
-      }
-`;
+        transform: ${({ showNav }) =>
+            showNav ? "translateX(0vw)" : "translateX(100vw)"};
+    }
+`
 
 const StyledDiv = styled.div`
     height: 100vh;
-        display: flex;
+    display: flex;
     justify-content: center;
-
-`;
-
+`
 
 const MenuItems = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-     a {
-        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    a {
         font-family: "Work Sans";
         font-size: 24px;
         color: white;
@@ -56,15 +55,15 @@ const MenuItems = styled.div`
         @media (max-width: 768px) {
             font-size: 20px;
             padding-top: 9px;
-        padding-bottom: 9px;
+            padding-bottom: 9px;
         }
-     }
-`;
+    }
+`
 
 const Social = styled.div`
-     display: flex;
-     justify-content: center;
-     position: absolute;
+    display: flex;
+    justify-content: center;
+    position: absolute;
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
@@ -72,13 +71,11 @@ const Social = styled.div`
         @media (max-width: 768px) {
             width: 30px;
         }
-
     }
-     a {
-        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    a {
         padding: 10px;
-     }
-`;
+    }
+`
 
 const StyledHamburger = styled.button`
     position: fixed;
@@ -90,7 +87,8 @@ const StyledHamburger = styled.button`
     background-color: transparent;
     border: 0;
     z-index: 999;
-    transform: ${({hamburger}) => hamburger ? "translate(0,0)" : "translate(0,0)"};
+    transform: ${({ hamburger }) =>
+        hamburger ? "translate(0,0)" : "translate(0,0)"};
     transition: transform 250ms ease-in-out;
     &:focus {
         outline: none;
@@ -99,8 +97,8 @@ const StyledHamburger = styled.button`
     @media (max-width: 768px) {
         top: 12px;
         right: 12px;
-      }
-`;
+    }
+`
 
 const HamburgerBox = styled.span`
     width: 24px;
@@ -109,8 +107,8 @@ const HamburgerBox = styled.span`
     position: relative;
     @media (max-width: 768px) {
         width: 20px;
-      }
-`;
+    }
+`
 
 const HamburgerInner = styled.span`
     width: 100%;
@@ -122,48 +120,63 @@ const HamburgerInner = styled.span`
     background-color: transparent;
     transition: background-color 100ms ease-in-out;
 
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         left: 0;
         width: 100%;
         height: 3px;
         position: absolute;
-        background-color: ${({menuTheme, hamburger})=> (menuTheme === "light" || hamburger) ? '#FFF' : '#262626'};
+        background-color: ${({ menuTheme, hamburger }) =>
+            menuTheme === "light" || hamburger ? "#FFF" : "#262626"};
         top: 8px;
-        transform: ${({hamburger}) => hamburger ? 'translateY(-8px) rotate(-135deg)':'translateY(0) rotate(0)'};
-        transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+        transform: ${({ hamburger }) =>
+            hamburger
+                ? "translateY(-8px) rotate(-135deg)"
+                : "translateY(0) rotate(0)"};
+        transition: background-color 250ms ease-in-out,
+            transform 250ms ease-in-out;
         @media (max-width: 768px) {
-            transform: ${({hamburger}) => hamburger ? 'translateY(-6px) rotate(-135deg)':'translateY(0) rotate(0)'};
+            transform: ${({ hamburger }) =>
+                hamburger
+                    ? "translateY(-6px) rotate(-135deg)"
+                    : "translateY(0) rotate(0)"};
             height: 2px;
             top: 6px;
-          }
+        }
     }
 
-    &::before{
-        content: '';
+    &::before {
+        content: "";
         left: 0;
         width: 100%;
         height: 3px;
         position: absolute;
-        background-color: ${({menuTheme, hamburger})=> (menuTheme === "light" || hamburger) ? '#FFF' : '#262626'};
+        background-color: ${({ menuTheme, hamburger }) =>
+            menuTheme === "light" || hamburger ? "#FFF" : "#262626"};
         top: -8px;
-        transform: ${({hamburger}) => hamburger ? 'translateY(8px) rotate(135deg)':'translateY(0) rotate(0)'};
-        transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+        transform: ${({ hamburger }) =>
+            hamburger
+                ? "translateY(8px) rotate(135deg)"
+                : "translateY(0) rotate(0)"};
+        transition: background-color 250ms ease-in-out,
+            transform 250ms ease-in-out;
         @media (max-width: 768px) {
-            transform: ${({hamburger}) => hamburger ? 'translateY(6px) rotate(135deg)':'translateY(0) rotate(0)'};
+            transform: ${({ hamburger }) =>
+                hamburger
+                    ? "translateY(6px) rotate(135deg)"
+                    : "translateY(0) rotate(0)"};
             height: 2px;
             top: -6px;
-          }
+        }
     }
-`;
+`
 
 const Nav = ({ menuTheme }) => {
-    const[menu, showMenu] = useState(false)
+    const [menu, showMenu] = useState(false)
 
     //console.log(menuTheme)
 
-
-    return(
+    return (
         <>
             <GlobalStyle />
             <StyledNav showNav={menu}>
@@ -174,17 +187,26 @@ const Nav = ({ menuTheme }) => {
                         <Link to="/about">About</Link>
                         <Link to="/contact">Contact</Link>
                     </MenuItems>
-
                 </StyledDiv>
-                    <Social>
-                        <a href="https://www.instagram.com/monica_loddo_ml/" rel="noreferrer" target="_blank"><img src={Instagram} alt="Monica Loddo Instagram"/></a>
-                        <a href="https://www.facebook.com/monica.loddo.5" rel="noreferrer" target="_blank"><img src={Facebook} alt="Monica Loddo Facebook"/></a>
-                    </Social>
-
-
+                <Social>
+                    <a
+                        href="https://www.instagram.com/monica_loddo_ml/"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img src={Instagram} alt="Monica Loddo Instagram" />
+                    </a>
+                    <a
+                        href="https://www.facebook.com/monica.loddo.5"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img src={Facebook} alt="Monica Loddo Facebook" />
+                    </a>
+                </Social>
             </StyledNav>
 
-            <StyledHamburger hamburger={menu} onClick={()=>showMenu(!menu)}>
+            <StyledHamburger hamburger={menu} onClick={() => showMenu(!menu)}>
                 <HamburgerBox>
                     <HamburgerInner menuTheme={menuTheme} hamburger={menu} />
                 </HamburgerBox>
@@ -197,7 +219,7 @@ export default Nav
 
 Nav.propTypes = {
     menuTheme: PropTypes.oneOf(["light", "dark"]),
-};
+}
 
 Nav.defaultProps = {
     menuTheme: "dark",

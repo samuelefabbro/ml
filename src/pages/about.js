@@ -1,38 +1,38 @@
-import { Parser } from 'html-to-react'
-import React, { Fragment } from 'react'
+import { Parser } from "html-to-react"
+import React, { Fragment } from "react"
 import Layout from "../components/Layout"
-import { Link, graphql } from 'gatsby'
+import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Footer from "../components/Footer"
-
 
 const htmlToReactParser = new Parser()
 
 const AboutImg = styled.img`
     width: 100%;
     max-width: 600px;
-`;
-
-
+`
 
 const Header = styled.section`
     padding-top: 50px;
-`;
+    @media (max-width: 840px) {
+        padding-top: 30px;
+    }
+`
 
 const Logo = styled.div`
     width: 72px;
     margin: 0 auto;
     img {
-      width: 72px;
+        width: 72px;
     }
     @media (max-width: 840px) {
-      width: 60px;
-      margin: 0 auto;
-      img {
-        width: 60px;
-      }
+        width: 40px;
+        margin: 0 auto;
+        img {
+            width: 40px;
+        }
     }
-`;
+`
 
 const Title = styled.h1`
     font-size: 26px;
@@ -41,11 +41,10 @@ const Title = styled.h1`
     text-align: center;
     margin: 46px auto 52px auto;
     @media (max-width: 840px) {
-      margin: 30px auto 40px auto;
-      font-size: 24px;
+        margin: 12px auto 14px auto;
+        font-size: 16px;
     }
-`;
-
+`
 
 const MasonryWrapper = styled.div`
     padding: 0 40px;
@@ -54,13 +53,13 @@ const MasonryWrapper = styled.div`
     margin-left: auto;
     margin-bottom: 60px;
     @media (max-width: 840px) {
-      margin-bottom: 30px;
+        margin-bottom: 30px;
     }
     @media (max-width: 500px) {
-      padding: 0 18px;
-      margin-bottom: 20px;
+        padding: 0 18px;
+        margin-bottom: 20px;
     }
-`;
+`
 
 const Masonry = styled.div`
     display: grid;
@@ -68,15 +67,14 @@ const Masonry = styled.div`
     grid-gap: 12px 20px;
 
     @media (max-width: 840px) {
-      grid-template-columns: 1fr 1fr 1fr;
-
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2px 10px;
     }
     @media (max-width: 500px) {
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 7px 15px;
-
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0px 6px;
     }
-`;
+`
 
 const MasonryItem = styled.div`
     width: 100%;
@@ -84,9 +82,7 @@ const MasonryItem = styled.div`
     img {
         width: 100%;
     }
-
-
-`;
+`
 
 const ParagraphContainer = styled.div`
     font-family: "Work Sans";
@@ -99,14 +95,18 @@ const ParagraphContainer = styled.div`
     padding-right: 40px;
     margin-bottom: 60px;
     @media (max-width: 840px) {
-      max-width: 700px;
-      margin-bottom: 20px;
+        max-width: 700px;
+        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 18px;
     }
     @media (max-width: 500px) {
-      padding-left: 18px;
-      padding-right: 18px;
+        padding-left: 18px;
+        padding-right: 18px;
+        font-size: 12px;
+        line-height: 16px;
     }
-`;
+`
 
 const About = ({ data }) => {
     const logo = data.allPrismicAbout.edges[0].node.data.logo.url
@@ -120,20 +120,20 @@ const About = ({ data }) => {
         let slice_type = slice.slice_type
 
         // Text Slice
-        if (slice_type === 'paragraph') {
-            let items = slice.items.map(item => htmlToReactParser.parse(item.text.html))
+        if (slice_type === "paragraph") {
+            let items = slice.items.map(item =>
+                htmlToReactParser.parse(item.text.html)
+            )
 
             return (
                 <ParagraphContainer key={`slice-${index}`}>
-                    <Fragment>
-                        {items}
-                    </Fragment>
+                    <Fragment>{items}</Fragment>
                 </ParagraphContainer>
             )
         }
 
         // Image Gallery Slice
-        if (slice_type === 'gallery') {
+        if (slice_type === "gallery") {
             return (
                 <MasonryWrapper key={index}>
                     <Masonry key={index}>
@@ -157,59 +157,58 @@ const About = ({ data }) => {
         <Layout>
             <Header>
                 <Logo>
-                    <Link to="/"><img src={logo} alt={logoAlt} /></Link>
+                    <Link to="/">
+                        <img src={logo} alt={logoAlt} />
+                    </Link>
                 </Logo>
-                <Title>
-                    {title}
-                </Title>
+                <Title>{title}</Title>
             </Header>
 
             {content}
-            <Footer/>
+            <Footer />
         </Layout>
     )
 }
 
 export const query = graphql`
-  query {
-    allPrismicAbout {
-      edges {
-        node {
-          data {
-            body {
-              ... on PrismicAboutBodyParagraph {
-                id
-                items {
-                  text {
-                    html
-                  }
+    query {
+        allPrismicAbout {
+            edges {
+                node {
+                    data {
+                        body {
+                            ... on PrismicAboutBodyParagraph {
+                                id
+                                items {
+                                    text {
+                                        html
+                                    }
+                                }
+                                slice_type
+                            }
+                            ... on PrismicAboutBodyGallery {
+                                id
+                                slice_type
+                                items {
+                                    image {
+                                        alt
+                                        url
+                                    }
+                                }
+                            }
+                        }
+                        logo {
+                            alt
+                            url
+                        }
+                        page_title {
+                            text
+                        }
+                    }
                 }
-                slice_type
-              }
-              ... on PrismicAboutBodyGallery {
-                id
-                slice_type
-                items {
-                  image {
-                    alt
-                    url
-                  }
-                }
-              }
             }
-            logo {
-              alt
-              url
-            }
-            page_title {
-              text
-            }
-          }
         }
-      }
     }
-  }
 `
-
 
 export default About
