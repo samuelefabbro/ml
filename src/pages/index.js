@@ -19,6 +19,10 @@ const LogoHome = styled.div`
         height: 145px;
         padding-top: 26px;
     }
+    @media (max-height: 400px) {
+        height: 145px;
+        padding-top: 26px;
+    }
     h1 {
         font-weight: 700;
         line-height: 1.2em;
@@ -26,6 +30,10 @@ const LogoHome = styled.div`
         margin: 0;
         letter-spacing: 0.3px;
         @media (max-width: 768px) {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        @media (max-height: 400px) {
             font-size: 20px;
             margin-bottom: 2px;
         }
@@ -56,13 +64,17 @@ const LogoHome = styled.div`
 const Video = styled.div`
     width: 100%;
     video {
-      width: 100%;
-      @media (max-width: 768px) {
-        object-fit: cover;
-        height: calc(100vh - 145px) !important;
+        width: 100%;
+        @media (max-width: 900px) {
+            object-fit: cover;
+            height: calc(100vh - 145px) !important;
+        }
+        @media (max-width: 500px) {
+            object-fit: cover;
+            height: calc(100vh - 145px) !important;
+        }
     }
 `
-
 const Overlay = styled.div`
     position: absolute;
     top: 50%;

@@ -21,7 +21,7 @@ const Image = styled.div`
 const Content = styled.div`
     text-align: center;
     padding: 10px 0 25px 0;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         padding: 10px 0 14px 0;
     }
 `
@@ -30,7 +30,7 @@ const Year = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 600;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         font-size: 8px;
     }
 `
@@ -41,7 +41,7 @@ const Title = styled.div`
     font-family: "Work Sans";
     font-weight: 600;
     margin: 0;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         font-size: 14px;
     }
 `
@@ -50,7 +50,7 @@ const Location = styled.div`
     font-size: 12px;
     font-family: "Work Sans";
     font-weight: 400;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         font-size: 8px;
     }
 `

@@ -45,6 +45,9 @@ const MenuItems = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @media (max-height: 390px) {
+        margin-top: -50px;
+    }
     a {
         font-family: "Work Sans";
         font-size: 24px;
@@ -56,6 +59,10 @@ const MenuItems = styled.div`
             font-size: 20px;
             padding-top: 9px;
             padding-bottom: 9px;
+        }
+        @media (max-height: 390px) {
+            padding-top: 6px;
+            padding-bottom: 6px;
         }
     }
 `
@@ -74,6 +81,9 @@ const Social = styled.div`
     }
     a {
         padding: 10px;
+    }
+    @media (max-height: 390px) {
+        bottom: 20px;
     }
 `
 

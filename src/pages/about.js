@@ -14,7 +14,7 @@ const AboutImg = styled.img`
 
 const Header = styled.section`
     padding-top: 50px;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         padding-top: 30px;
     }
 `
@@ -25,7 +25,7 @@ const Logo = styled.div`
     img {
         width: 72px;
     }
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         width: 40px;
         margin: 0 auto;
         img {
@@ -40,7 +40,7 @@ const Title = styled.h1`
     font-weight: 600;
     text-align: center;
     margin: 46px auto 52px auto;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         margin: 12px auto 14px auto;
         font-size: 16px;
     }
@@ -96,7 +96,7 @@ const ParagraphContainer = styled.div`
     margin-bottom: 60px;
     @media (max-width: 840px) {
         max-width: 700px;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
         font-size: 12px;
         line-height: 18px;
     }

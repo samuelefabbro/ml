@@ -13,7 +13,7 @@ const htmlToReactParser = new Parser()
 
 const Header = styled.section`
     padding-top: 50px;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         padding-top: 30px;
     }
 `
@@ -21,7 +21,7 @@ const Header = styled.section`
 const Wrapper = styled.div`
     padding-top: 28px;
     padding-bottom: 40px;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         padding-top: 12px;
         padding-bottom: 16px;
     }
@@ -33,7 +33,7 @@ const Logo = styled.div`
     img {
         width: 72px;
     }
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         width: 40px;
         margin: 0 auto;
         img {
@@ -47,7 +47,7 @@ const Year = styled.div`
     font-family: "Work Sans";
     font-weight: 600;
     text-align: center;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         font-size: 8px;
     }
 `
@@ -58,7 +58,7 @@ const Title = styled.div`
     font-weight: 600;
     text-align: center;
     line-height: 1.4em;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         font-size: 16px;
         line-height: 1.2em;
     }
@@ -69,7 +69,7 @@ const Location = styled.div`
     font-family: "Work Sans";
     font-weight: 400;
     text-align: center;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         font-size: 8px;
     }
 `

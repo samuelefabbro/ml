@@ -8,7 +8,7 @@ import Footer from "../components/Footer"
 
 const Header = styled.section`
     padding-top: 50px;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         padding-top: 30px;
     }
 `
@@ -19,7 +19,7 @@ const Logo = styled.div`
     img {
         width: 72px;
     }
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         width: 40px;
         margin: 0 auto;
         img {
@@ -34,7 +34,7 @@ const Title = styled.h1`
     font-weight: 600;
     text-align: center;
     margin: 46px auto 52px auto;
-    @media (max-width: 840px) {
+    @media (max-width: 500px) {
         margin: 12px auto 16px auto;
         font-size: 16px;
     }
