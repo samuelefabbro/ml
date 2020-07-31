@@ -13,7 +13,7 @@ const Body = styled.section`
 
 const Header = styled.section`
     padding-top: 50px;
-    @media (max-width: 500px), (max-height: 695px) {
+    @media (max-width: 500px), (max-height: 650px) {
         padding-top: 30px;
     }
 `
@@ -24,7 +24,7 @@ const Logo = styled.div`
     img {
         width: 72px;
     }
-    @media (max-width: 500px), (max-height: 695px) {
+    @media (max-width: 500px), (max-height: 650px) {
         width: 40px;
         margin: 0 auto;
         img {
@@ -40,7 +40,7 @@ const Title = styled.h1`
     font-weight: 600;
     text-align: center;
     margin: 46px auto 52px auto;
-    @media (max-width: 500px), (max-height: 695px) {
+    @media (max-width: 500px), (max-height: 650px) {
         margin: 12px auto 34px auto;
         font-size: 16px;
     }
@@ -48,7 +48,7 @@ const Title = styled.h1`
 const Center = styled.div`
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -30%);
     position: absolute;
     @media (max-height: 530px) {
         transform: translate(-50%, -30%);

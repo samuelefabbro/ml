@@ -97,14 +97,13 @@ const ParagraphContainer = styled.div`
     @media (max-width: 840px) {
         max-width: 700px;
         margin-bottom: 60px;
-        font-size: 12px;
-        line-height: 18px;
     }
     @media (max-width: 500px) {
         padding-left: 18px;
         padding-right: 18px;
         font-size: 12px;
         line-height: 16px;
+        margin-bottom: 25px;
     }
 `
 
