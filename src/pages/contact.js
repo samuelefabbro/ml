@@ -13,7 +13,7 @@ const Body = styled.section`
 
 const Header = styled.section`
     padding-top: 50px;
-    @media (max-width: 500px), (max-height: 630px) {
+    @media (max-width: 500px), (max-height: 695px) {
         padding-top: 30px;
     }
 `
@@ -24,7 +24,7 @@ const Logo = styled.div`
     img {
         width: 72px;
     }
-    @media (max-width: 500px), (max-height: 630px) {
+    @media (max-width: 500px), (max-height: 695px) {
         width: 40px;
         margin: 0 auto;
         img {
@@ -40,9 +40,21 @@ const Title = styled.h1`
     font-weight: 600;
     text-align: center;
     margin: 46px auto 52px auto;
-    @media (max-width: 500px), (max-height: 630px) {
+    @media (max-width: 500px), (max-height: 695px) {
         margin: 12px auto 34px auto;
         font-size: 16px;
+    }
+`
+const Center = styled.div`
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    position: absolute;
+    @media (max-height: 530px) {
+        transform: translate(-50%, -30%);
+    }
+    @media (max-height: 400px) {
+        transform: translate(-50%, -10%);
     }
 `
 
@@ -74,14 +86,14 @@ const Description = styled.div`
     p {
         line-height: 22px;
         margin-bottom: 28px;
-        @media (max-width: 500px) {
-            margin-bottom: 20px;
+        @media (max-width: 500px), (max-height: 400px) {
+            margin-bottom: 16px;
         }
     }
     h3 {
         font-size: 22px;
         margin-bottom: 10px;
-        @media (max-width: 500px) {
+        @media (max-width: 500px), (max-height: 400px) {
             font-size: 16px;
             margin-bottom: 10px;
         }
@@ -92,8 +104,9 @@ const Address = styled.p`
     margin-top: 26px;
     font-size: 14px;
     line-height: 22px;
-    @media (max-width: 500px) {
-        margin-top: 16px;
+    @media (max-width: 500px), (max-height: 400px) {
+        margin-top: 12px;
+        font-size: 10px;
     }
 `
 
@@ -118,14 +131,16 @@ const Contact = ({ data }) => {
                     </Logo>
 
                     <Title>{document.contact.text}</Title>
-                    <Description>
-                        {htmlToReactParser.parse(document.paragraph.html)}
-                        {htmlToReactParser.parse(document.email.html)}
-                        {htmlToReactParser.parse(document.phone.html)}
-                        <Address>
-                            {htmlToReactParser.parse(document.address.html)}
-                        </Address>
-                    </Description>
+                    <Center>
+                        <Description>
+                            {htmlToReactParser.parse(document.paragraph.html)}
+                            {htmlToReactParser.parse(document.email.html)}
+                            {htmlToReactParser.parse(document.phone.html)}
+                            <Address>
+                                {htmlToReactParser.parse(document.address.html)}
+                            </Address>
+                        </Description>
+                    </Center>
                     <FooterWhite />
                 </Header>
             </Body>

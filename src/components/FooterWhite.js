@@ -15,10 +15,10 @@ const StyledFooter = styled.footer`
 
     margin: 0 auto;
     padding: 50px;
-    @media (max-width: 500px), (max-height: 630px) {
+    @media (max-width: 500px), (max-height: 695px) {
         padding: 0 25px 25px 25px;
     }
-    @media (max-height: 460px) {
+    @media (max-height: 540px) {
         display: none;
     }
 `
@@ -40,7 +40,7 @@ const Menu = styled.div`
     font-family: "Work Sans";
     margin-bottom: 8px;
     color: #ffffff;
-    @media (max-width: 500px), (max-height: 630px) {
+    @media (max-width: 500px), (max-height: 695px) {
         margin-bottom: 6px;
     }
     a {
@@ -49,7 +49,7 @@ const Menu = styled.div`
         font-size: 20px;
         margin-left: 5px;
         margin-right: 5px;
-        @media (max-width: 500px), (max-height: 630px) {
+        @media (max-width: 500px), (max-height: 695px) {
             font-size: 16px;
         }
     }
@@ -58,7 +58,7 @@ const Menu = styled.div`
 const Copyright = styled.div`
     font-size: 12px;
     color: #ffffff;
-    @media (max-width: 500px), (max-height: 630px) {
+    @media (max-width: 500px), (max-height: 695px) {
         font-size: 9px;
     }
 `
