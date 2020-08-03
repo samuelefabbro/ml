@@ -45,12 +45,19 @@ const LogoHome = styled.div`
         @media (max-width: 768px) {
             font-size: 10px;
         }
+        @media (max-height: 400px) {
+            font-size: 10px;
+        }
     }
     img {
         width: 72px;
         margin: 0;
         padding-bottom: 8px;
         @media (max-width: 768px) {
+            width: 40px;
+            padding-bottom: 12px;
+        }
+        @media (max-height: 400px) {
             width: 40px;
             padding-bottom: 12px;
         }
@@ -84,11 +91,14 @@ const Overlay = styled.div`
     @media (max-width: 768px) {
         transform: translate(-50%, -35%);
     }
+    @media (max-height: 400px) {
+        transform: translate(-50%, -45%);
+    }
     img {
         @media (max-width: 768px) {
             height: 130px;
         }
-        @media (max-width: 500px) {
+        @media (max-width: 500px), (max-height: 400px) {
             height: 100px;
         }
     }
